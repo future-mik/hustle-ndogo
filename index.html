@@ -1,0 +1,468 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#160d29">
+<title>Hustle Ndogo KE | Find Your Next Opportunity</title>
+
+<style>
+:root {
+  --purple: #8739db;
+  --light-purple: #b77aff;
+  --dark: #160d29;
+  --muted: #a99db9;
+  --surface: #211535;
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: Arial, sans-serif;
+  background: #120b20;
+  color: var(--white);
+  line-height: 1.6;
+}
+
+a { text-decoration: none; color: inherit; }
+
+header {
+  padding: 17px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #342447;
+  background: rgba(22,13,41,.96);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+  font-size: 19px;
+  letter-spacing: 1px;
+}
+
+.logo-mark {
+  background: var(--purple);
+  color: white;
+  border-radius: 10px;
+  width: 39px;
+  height: 39px;
+  display: grid;
+  place-items: center;
+  font-size: 27px;
+  font-weight: 900;
+  box-shadow: 0 0 20px #8739db55;
+}
+
+.logo span small {
+  display: block;
+  color: var(--light-purple);
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+nav {
+  display: flex;
+  gap: 23px;
+  align-items: center;
+  font-size: 13px;
+  color: #d5c9e3;
+}
+
+nav a:hover { color: var(--light-purple); }
+
+.join-btn {
+  background: var(--purple);
+  padding: 11px 18px;
+  border-radius: 9px;
+  font-weight: bold;
+  color: white;
+}
+
+.hero {
+  padding: 85px 7% 90px;
+  background:
+    radial-gradient(ellipse at 80% 25%, #6928a955, transparent 45%),
+    linear-gradient(135deg,#160d29,#211038);
+  min-height: 490px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-content { max-width: 720px; }
+
+.eyebrow {
+  color: var(--light-purple);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin-bottom: 22px;
+}
+
+h1 {
+  font-size: clamp(42px, 8vw, 76px);
+  line-height: 1.08;
+  letter-spacing: -2px;
+  margin-bottom: 23px;
+}
+
+h1 span { color: var(--light-purple); }
+
+.hero p {
+  color: #c2b5d2;
+  font-size: 16px;
+  max-width: 540px;
+  margin-bottom: 30px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 13px;
+  flex-wrap: wrap;
+}
+
+.primary-btn, .secondary-btn {
+  padding: 14px 22px;
+  border-radius: 9px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.primary-btn {
+  background: var(--purple);
+}
+
+.secondary-btn {
+  border: 1px solid #74558f;
+  color: white;
+}
+
+.primary-btn:hover, .join-btn:hover {
+  background: #a45aef;
+}
+
+.section {
+  padding: 65px 7%;
+}
+
+.section-heading {
+  margin-bottom: 30px;
+}
+
+.section-heading h2 {
+  font-size: 29px;
+  margin-bottom: 7px;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 15px;
+}
+
+.category {
+  padding: 22px;
+  background: var(--surface);
+  border: 1px solid #3b2851;
+  border-radius: 13px;
+  transition: .2s;
+}
+
+.category:hover {
+  transform: translateY(-4px);
+  border-color: var(--purple);
+}
+
+.category .emoji {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.category h3 { font-size: 16px; }
+
+.category p {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.opportunities {
+  background: #190f29;
+}
+
+.opportunity-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 17px;
+}
+
+.opportunity {
+  background: #25183a;
+  border: 1px solid #3b2851;
+  border-radius: 13px;
+  padding: 22px;
+}
+
+.tag {
+  display: inline-block;
+  background: #432365;
+  color: #d6b2ff;
+  padding: 5px 10px;
+  border-radius: 30px;
+  font-size: 10px;
+  margin-bottom: 15px;
+}
+
+.opportunity h3 {
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.opportunity p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.demo-note {
+  margin-top: 20px;
+  color: #9f91ad;
+  font-size: 11px;
+}
+
+.community {
+  padding: 65px 7%;
+  text-align: center;
+  background: linear-gradient(120deg,#45206c,#25133b);
+}
+
+.community h2 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.community p {
+  color: #e0d2ed;
+  max-width: 550px;
+  margin: 0 auto 25px;
+}
+
+footer {
+  padding: 30px 7%;
+  text-align: center;
+  color: #a99db9;
+  font-size: 12px;
+  background: #0e0818;
+}
+
+footer strong { color: var(--light-purple); }
+
+@media(max-width:700px) {
+  header { padding: 13px 5%; }
+  nav { gap: 12px; }
+  nav a:not(.join-btn) { display: none; }
+  .hero { padding: 70px 6%; min-height: 450px; }
+  .section { padding: 50px 6%; }
+  .categories { grid-template-columns: repeat(2,1fr); }
+  .opportunity-grid { grid-template-columns: 1fr; }
+  .community { padding: 55px 6%; }
+}
+
+@media(max-width:360px) {
+  .logo { font-size: 15px; }
+  .categories { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="#" class="logo">
+    <div class="logo-mark">H</div>
+    <span>
+      HUSTLE NDOGO
+      <small>KENYA • KE</small>
+    </span>
+  </a>
+
+  <nav>
+    <a href="#discover">Discover</a>
+    <a href="#categories">Categories</a>
+    <a href="#about">About</a>
+    <a href="#join" class="join-btn">Join Us</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">WELCOME TO HUSTLE NDOGO KE</div>
+
+    <h1>
+      Small Hustles.<br>
+      <span>Big Possibilities.</span>
+    </h1>
+
+    <p>
+      Opportunities are everywhere. Sometimes all you need
+      is the right information, the right connection and the
+      courage to start. Discover ideas, digital opportunities
+      and practical ways to make your next move.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#discover" class="primary-btn">
+        Explore Opportunities →
+      </a>
+
+      <a href="#about" class="secondary-btn">
+        Our Mission
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="categories">
+  <div class="section-heading">
+    <h2>Explore Your Possibilities</h2>
+    <p>Different paths. One community. Endless possibilities.</p>
+  </div>
+
+  <div class="categories">
+
+    <div class="category">
+      <div class="emoji">💻</div>
+      <h3>Online Gigs</h3>
+      <p>Explore remote work and digital earning opportunities.</p>
+    </div>
+
+    <div class="category">
+      <div class="emoji">📱</div>
+      <h3>Digital Hustles</h3>
+      <p>Discover ways to turn digital skills into income.</p>
+    </div>
+
+    <div class="category">
+      <div class="emoji">🏪</div>
+      <h3>Small Businesses</h3>
+      <p>Ideas and inspiration for starting small.</p>
+    </div>
+
+    <div class="category">
+      <div class="emoji">🎓</div>
+      <h3>Student Hustles</h3>
+      <p>Explore opportunities that fit student life.</p>
+    </div>
+
+    <div class="category">
+      <div class="emoji">🧠</div>
+      <h3>Skills & Learning</h3>
+      <p>Learn skills that can open new doors.</p>
+    </div>
+
+    <div class="category">
+      <div class="emoji">🤝</div>
+      <h3>Community</h3>
+      <p>Connect, share ideas and grow together.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="section opportunities" id="discover">
+  <div class="section-heading">
+    <h2>Opportunity Spotlight</h2>
+    <p>A glimpse of the opportunities we'll be exploring.</p>
+  </div>
+
+  <div class="opportunity-grid">
+
+    <div class="opportunity">
+      <span class="tag">REMOTE WORK</span>
+      <h3>AI Training & Data Tasks</h3>
+      <p>
+        Explore platforms offering AI evaluation,
+        data annotation and related digital tasks.
+      </p>
+    </div>
+
+    <div class="opportunity">
+      <span class="tag">SMALL BUSINESS</span>
+      <h3>Low-Capital Ventures</h3>
+      <p>
+        Discover practical business ideas that
+        can be started on a modest budget.
+      </p>
+    </div>
+
+    <div class="opportunity">
+      <span class="tag">DIGITAL SKILLS</span>
+      <h3>Freelancing</h3>
+      <p>
+        Learn how writing, design, research and
+        other skills can create opportunities.
+      </p>
+    </div>
+
+  </div>
+
+  <p class="demo-note">
+    These are illustrative examples, not verified or currently
+    available job listings. Always verify opportunities before
+    sending money or personal information.
+  </p>
+</section>
+
+<section class="community" id="about">
+  <h2>It's More Than Just Making Money.</h2>
+  <p>
+    Hustle Ndogo KE is about access, information,
+    creativity and a community that believes your
+    circumstances today do not have to define your tomorrow.
+  </p>
+  <a href="#join" class="primary-btn">Become Part of the Community</a>
+</section>
+
+<section class="section" id="join" style="text-align:center">
+  <div class="section-heading">
+    <h2>Your Next Chapter Starts Here.</h2>
+    <p>
+      Join the Hustle Ndogo journey. Let's discover,
+      learn and grow together.
+    </p>
+  </div>
+  <a href="https://wa.me/" class="primary-btn">
+    Join the Conversation →
+  </a>
+</section>
+
+</main>
+
+<footer>
+  <strong>HUSTLE NDOGO KE</strong>
+  <p>Small Hustles. Big Possibilities.</p>
+  <p>© 2026 Hustle Ndogo KE. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
