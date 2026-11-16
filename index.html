@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,415 +5,85 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#160d29">
 <title>Hustle Ndogo KE</title>
-
 <style>
-:root {
-  --purple:#8739db;
-  --accent:#b77aff;
-  --bg:#120b20;
-  --surface:#211535;
-  --surface2:#2a1b40;
-  --text:#ffffff;
-  --muted:#b9a9ca;
-  --border:#3b2851;
-}
-
-body.light {
-  --bg:#f6f2fb;
-  --surface:#ffffff;
-  --surface2:#eee6f8;
-  --text:#241432;
-  --muted:#74647f;
-  --border:#e0d3ec;
-}
-
-* {
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-body {
-  font-family:Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.55;
-  transition:background .2s,color .2s;
-}
-
-button,a { font:inherit; }
-button { cursor:pointer; }
-a { color:inherit;text-decoration:none; }
-
-header {
-  position:sticky;
-  top:0;
-  z-index:20;
-  background:var(--bg);
-  border-bottom:1px solid var(--border);
-}
-
-.topbar {
-  min-height:75px;
-  padding:12px 5%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-}
-
-.brand {
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-weight:900;
-  letter-spacing:1px;
-  font-size:17px;
-}
-
-.brand-icon {
-  height:43px;
-  width:43px;
-  background:var(--purple);
-  border-radius:12px;
-  display:grid;
-  place-items:center;
-  font-size:28px;
-  color:white;
-  box-shadow:0 0 20px #8739db44;
-}
-
-.brand small {
-  display:block;
-  font-size:9px;
-  color:var(--accent);
-  letter-spacing:3px;
-}
-
-.top-actions {
-  display:flex;
-  align-items:center;
-  gap:9px;
-}
-
-.theme-select {
-  background:var(--surface);
-  color:var(--text);
-  border:1px solid var(--border);
-  padding:9px;
-  border-radius:9px;
-  max-width:112px;
-}
-
-.account-btn,.primary {
-  background:var(--purple);
-  color:white;
-  border:0;
-  border-radius:9px;
-  padding:11px 17px;
-  font-weight:bold;
-}
-
-nav {
-  display:flex;
-  overflow-x:auto;
-  scrollbar-width:none;
-  padding:0 4%;
-  border-top:1px solid var(--border);
-}
-
-nav::-webkit-scrollbar {display:none;}
-
-.nav-btn {
-  flex-shrink:0;
-  background:none;
-  color:var(--muted);
-  border:0;
-  padding:15px 14px;
-  font-size:13px;
-  border-bottom:3px solid transparent;
-}
-
-.nav-btn.active {
-  color:var(--accent);
-  border-bottom-color:var(--purple);
-  font-weight:bold;
-}
-
-main {
-  max-width:1150px;
-  margin:auto;
-  padding:25px 5% 75px;
-}
-
-.page {display:none;}
-.page.active {display:block;animation:appear .2s ease;}
-
-@keyframes appear {
-  from {opacity:0;transform:translateY(5px);}
-  to {opacity:1;transform:translateY(0);}
-}
-
-.hero {
-  padding:65px 6%;
-  border-radius:20px;
-  background:
-    radial-gradient(circle at 80% 20%,#9b55ed88,transparent 40%),
-    linear-gradient(120deg,#25113d,#6431a5);
-  color:white;
-  margin-bottom:42px;
-}
-
-.eyebrow {
-  color:#dfc1ff;
-  letter-spacing:3px;
-  font-size:11px;
-  font-weight:bold;
-  margin-bottom:18px;
-}
-
-.hero h1 {
-  font-size:clamp(36px,7vw,65px);
-  line-height:1.12;
-  margin-bottom:20px;
-}
-
-.hero p {
-  max-width:600px;
-  color:#e2d5f0;
-  margin-bottom:25px;
-}
-
-.primary {
-  display:inline-block;
-  padding:13px 19px;
-}
-
-.secondary {
-  display:inline-block;
-  border:1px solid #c6a1ed;
-  border-radius:9px;
-  padding:12px 18px;
-  color:white;
-  margin-left:8px;
-}
-
-.section-title {
-  font-size:25px;
-  margin-bottom:6px;
-}
-
-.section-sub {
-  color:var(--muted);
-  margin-bottom:23px;
-  font-size:13px;
-}
-
-.grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-}
-
-.card {
-  background:var(--surface);
-  border:1px solid var(--border);
-  padding:22px;
-  border-radius:14px;
-  transition:.2s;
-}
-
-.card:hover {
-  border-color:var(--purple);
-  transform:translateY(-3px);
-}
-
-.card-icon {
-  font-size:28px;
-  margin-bottom:12px;
-}
-
-.card h3 {
-  font-size:16px;
-  margin-bottom:7px;
-}
-
-.card p {
-  font-size:13px;
-  color:var(--muted);
-}
-
-.tag {
-  display:inline-block;
-  background:var(--surface2);
-  color:var(--accent);
-  font-size:10px;
-  padding:5px 10px;
-  border-radius:20px;
-  margin-bottom:12px;
-}
-
-.block {
-  margin-bottom:42px;
-}
-
-.wallet {
-  background:linear-gradient(135deg,#36175c,#7435bb);
-  color:white;
-  padding:28px;
-  border-radius:18px;
-  max-width:650px;
-  box-shadow:0 10px 35px #0002;
-}
-
-.wallet-label {
-  font-size:12px;
-  color:#e2c9ff;
-  letter-spacing:2px;
-}
-
-.balance-row {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  margin:10px 0 22px;
-}
-
-.balance {
-  font-size:35px;
-  font-weight:800;
-  letter-spacing:1px;
-}
-
-.hide-btn {
-  background:#ffffff20;
-  color:white;
-  border:1px solid #ffffff55;
-  border-radius:8px;
-  padding:9px 13px;
-}
-
-.wallet-bottom {
-  border-top:1px solid #ffffff44;
-  padding-top:17px;
-  display:flex;
-  justify-content:space-between;
-  font-size:13px;
-  color:#eadcff;
-}
-
-.wallet-actions {
-  display:flex;
-  gap:10px;
-  margin-top:18px;
-  flex-wrap:wrap;
-}
-
-.wallet-actions button {
-  padding:10px 15px;
-  border-radius:8px;
-  border:1px solid #ffffff55;
-  color:white;
-  background:#ffffff18;
-}
-
-.page-heading {
-  padding:25px 0 30px;
-}
-
-.page-heading h1 {
-  font-size:32px;
-  margin-bottom:8px;
-}
-
-.page-heading p {
-  color:var(--muted);
-}
-
-.empty {
-  border:1px dashed var(--border);
-  border-radius:14px;
-  padding:35px 20px;
-  text-align:center;
-  color:var(--muted);
-}
-
-.empty .card-icon {font-size:38px;}
-
-.community {
-  background:var(--surface2);
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:35px 20px;
-  text-align:center;
-  margin-top:35px;
-}
-
-.community h2 {margin-bottom:10px;}
-.community p {color:var(--muted);margin-bottom:20px;}
-
-footer {
-  border-top:1px solid var(--border);
-  text-align:center;
-  padding:30px 15px;
-  color:var(--muted);
-  font-size:12px;
-}
-
-footer strong {color:var(--accent);}
-
-@media(max-width:700px) {
-  .topbar {padding:11px 4%;}
-  .brand {font-size:14px;}
-  .brand-icon {width:37px;height:37px;}
-  .theme-select {max-width:90px;font-size:11px;}
-  .account-btn {padding:10px;font-size:12px;}
-  nav {padding:0 2%;}
-  .nav-btn {padding:13px 12px;font-size:12px;}
-  main {padding:20px 5% 55px;}
-  .hero {padding:45px 23px;}
-  .grid {grid-template-columns:repeat(2,1fr);}
-  .balance {font-size:27px;}
-}
-
-@media(max-width:380px) {
-  .grid {grid-template-columns:1fr;}
-  .brand {font-size:12px;}
-  .theme-select {max-width:76px;}
-}
+:root{--purple:#8739db;--accent:#b77aff;--bg:#120b20;--surface:#211535;--surface2:#2a1b40;--text:#fff;--muted:#b9a9ca;--border:#3b2851}
+body.light{--bg:#f6f2fb;--surface:#fff;--surface2:#eee6f8;--text:#241432;--muted:#74647f;--border:#e0d3ec}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;transition:background .2s,color .2s}
+button,input{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}
+header{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--border)}
+.topbar{min-height:75px;padding:12px 5%;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:1px;font-size:17px}
+.brand-icon{height:43px;width:43px;background:var(--purple);border-radius:12px;display:grid;place-items:center;font-size:28px;color:#fff;box-shadow:0 0 20px #8739db44}
+.brand small{display:block;font-size:9px;color:var(--accent);letter-spacing:3px}
+.top-actions{display:flex;align-items:center;gap:9px}
+.theme-select{background:var(--surface);color:var(--text);border:1px solid var(--border);padding:9px;border-radius:9px;max-width:112px}
+.account-btn,.primary{background:var(--purple);color:#fff;border:0;border-radius:9px;padding:11px 17px;font-weight:bold}
+nav{display:flex;overflow-x:auto;scrollbar-width:none;padding:0 4%;border-top:1px solid var(--border)}
+nav::-webkit-scrollbar{display:none}
+.nav-btn{flex-shrink:0;background:none;color:var(--muted);border:0;padding:15px 14px;font-size:13px;border-bottom:3px solid transparent}
+.nav-btn.active{color:var(--accent);border-bottom-color:var(--purple);font-weight:bold}
+main{max-width:1150px;margin:auto;padding:25px 5% 75px}
+.page{display:none}.page.active{display:block;animation:appear .2s ease}
+@keyframes appear{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.hero{padding:65px 6%;border-radius:20px;background:radial-gradient(circle at 80% 20%,#9b55ed88,transparent 40%),linear-gradient(120deg,#25113d,#6431a5);color:#fff;margin-bottom:42px}
+.eyebrow{color:#dfc1ff;letter-spacing:3px;font-size:11px;font-weight:bold;margin-bottom:18px}
+.hero h1{font-size:clamp(36px,7vw,65px);line-height:1.12;margin-bottom:20px}
+.hero p{max-width:600px;color:#e2d5f0;margin-bottom:25px}
+.primary{display:inline-block;padding:13px 19px}
+.secondary{display:inline-block;border:1px solid #c6a1ed;border-radius:9px;padding:12px 18px;color:#fff;margin-left:8px;background:transparent}
+.section-title{font-size:25px;margin-bottom:6px}.section-sub{color:var(--muted);margin-bottom:23px;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.card{background:var(--surface);border:1px solid var(--border);padding:22px;border-radius:14px;transition:.2s}
+.card:hover{border-color:var(--purple);transform:translateY(-3px)}
+.card-icon{font-size:28px;margin-bottom:12px}.card h3{font-size:16px;margin-bottom:7px}.card p{font-size:13px;color:var(--muted)}
+.tag{display:inline-block;background:var(--surface2);color:var(--accent);font-size:10px;padding:5px 10px;border-radius:20px;margin-bottom:12px}
+.block{margin-bottom:42px}
+.wallet{background:linear-gradient(135deg,#36175c,#7435bb);color:#fff;padding:28px;border-radius:18px;max-width:650px;box-shadow:0 10px 35px #0002}
+.wallet-label{font-size:12px;color:#e2c9ff;letter-spacing:2px}
+.balance-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:10px 0 22px}
+.balance{font-size:35px;font-weight:800;letter-spacing:1px}
+.hide-btn{background:#ffffff20;color:#fff;border:1px solid #ffffff55;border-radius:8px;padding:9px 13px}
+.wallet-bottom{border-top:1px solid #ffffff44;padding-top:17px;display:flex;justify-content:space-between;font-size:13px;color:#eadcff}
+.wallet-actions{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.wallet-actions button{padding:10px 15px;border-radius:8px;border:1px solid #ffffff55;color:#fff;background:#ffffff18}
+.page-heading{padding:25px 0 30px}.page-heading h1{font-size:32px;margin-bottom:8px}.page-heading p{color:var(--muted)}
+.empty{border:1px dashed var(--border);border-radius:14px;padding:35px 20px;text-align:center;color:var(--muted)}.empty .card-icon{font-size:38px}
+.community{background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:35px 20px;text-align:center;margin-top:35px}
+.community h2{margin-bottom:10px}.community p{color:var(--muted);margin-bottom:20px}
+footer{border-top:1px solid var(--border);text-align:center;padding:30px 15px;color:var(--muted);font-size:12px}footer strong{color:var(--accent)}
+.auth-wrap{max-width:650px}.auth-card{background:var(--surface);border:1px solid var(--border);padding:22px;border-radius:14px;margin-bottom:16px}
+.auth-card h2{font-size:20px;margin-bottom:7px}.auth-card>p{color:var(--muted);font-size:13px;margin-bottom:17px}
+.field{margin:13px 0}.field label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+.field input{width:100%;padding:12px;border:1px solid var(--border);border-radius:9px;background:var(--bg);color:var(--text);outline:none}
+.field input:focus{border-color:var(--accent)}
+.form-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
+.form-row button{border:0}
+.link-btn{background:none;border:0;color:var(--accent);padding:8px}
+.status{margin-top:13px;padding:11px 13px;border-radius:9px;font-size:13px;display:none;overflow-wrap:anywhere}
+.status.show{display:block}.status.error{background:#8b252533;color:#ffb5b5;border:1px solid #b84b4b66}.status.success{background:#1e8a4a22;color:#8de0ad;border:1px solid #3aa66a66}.status.info{background:#8739db22;color:var(--accent);border:1px solid #8739db66}
+.hidden{display:none!important}
+#recaptcha-container{margin:12px 0;overflow-x:auto}
+.account-summary{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.avatar{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--purple);font-size:22px;color:#fff}
+.small-note{font-size:12px;color:var(--muted);margin-top:12px}
+@media(max-width:700px){.topbar{padding:11px 4%}.brand{font-size:14px}.brand-icon{width:37px;height:37px}.theme-select{max-width:90px;font-size:11px}.account-btn{padding:10px;font-size:12px}nav{padding:0 2%}.nav-btn{padding:13px 12px;font-size:12px}main{padding:20px 5% 55px}.hero{padding:45px 23px}.grid{grid-template-columns:repeat(2,1fr)}.balance{font-size:27px}}
+@media(max-width:380px){.grid{grid-template-columns:1fr}.brand{font-size:12px}.theme-select{max-width:76px}.secondary{margin:10px 0 0}}
 </style>
 </head>
-
 <body>
-
 <header>
   <div class="topbar">
-
-    <a class="brand" href="#" onclick="showPage('home');return false;">
-      <div class="brand-icon">H</div>
-      <span>
-        HUSTLE NDOGO
-        <small>KENYA • KE</small>
-      </span>
+    <a class="brand" href="#" onclick="showPage('home');return false">
+      <div class="brand-icon">H</div><span>HUSTLE NDOGO<small>KENYA • KE</small></span>
     </a>
-
     <div class="top-actions">
-      <select class="theme-select" id="themeSelect"
-        aria-label="Choose theme">
-        <option value="system">System</option>
-        <option value="dark">Dark</option>
-        <option value="light">Light</option>
+      <select class="theme-select" id="themeSelect" aria-label="Choose theme">
+        <option value="system">System</option><option value="dark">Dark</option><option value="light">Light</option>
       </select>
-
-      <button class="account-btn"
-        onclick="showPage('account')">
-        Join Us
-      </button>
+      <button class="account-btn" id="joinButton" onclick="showPage('account')">Join Us</button>
     </div>
-
   </div>
-
   <nav id="navigation">
     <button class="nav-btn active" data-page="home">Home</button>
     <button class="nav-btn" data-page="discover">Discover</button>
@@ -428,463 +97,375 @@ footer strong {color:var(--accent);}
 </header>
 
 <main>
-
-<!-- HOME -->
-
 <section class="page active" id="home">
-
   <div class="hero">
     <div class="eyebrow">A LITTLE SPACE FOR BIG POSSIBILITIES</div>
-
-    <h1>
-      Connect. Play.<br>
-      Create. Earn.
-    </h1>
-
-    <p>
-      Meet people, enjoy games, discover fresh opportunities,
-      share your writing and put your hustle in front of
-      more people.
-    </p>
-
-    <button class="primary" onclick="showPage('discover')">
-      Explore Hustle Ndogo →
-    </button>
-
-    <button class="secondary" onclick="showPage('account')">
-      Join the Community
-    </button>
+    <h1>Connect. Play.<br>Create. Earn.</h1>
+    <p>Meet people, enjoy games, discover fresh opportunities, share your writing and put your hustle in front of more people.</p>
+    <button class="primary" onclick="showPage('discover')">Explore Hustle Ndogo →</button>
+    <button class="secondary" onclick="showPage('account')">Join the Community</button>
   </div>
-
   <div class="block">
-    <h2 class="section-title">Explore the platform</h2>
-    <p class="section-sub">
-      Five spaces. One growing community.
-    </p>
-
+    <h2 class="section-title">Explore the platform</h2><p class="section-sub">Five spaces. One growing community.</p>
     <div class="grid">
-
-      <div class="card" onclick="showPage('discover')">
-        <div class="card-icon">🤝</div>
-        <h3>Discover People</h3>
-        <p>Find friends, companions and people who share your interests.</p>
-      </div>
-
-      <div class="card" onclick="showPage('games')">
-        <div class="card-icon">🎮</div>
-        <h3>Play Games</h3>
-        <p>Challenge friends and enjoy friendly competition.</p>
-      </div>
-
-      <div class="card" onclick="showPage('entertainment')">
-        <div class="card-icon">🎬</div>
-        <h3>Entertainment</h3>
-        <p>Explore digital entertainment and fresh ideas.</p>
-      </div>
-
-      <div class="card" onclick="showPage('books')">
-        <div class="card-icon">📚</div>
-        <h3>Books & Writing</h3>
-        <p>Read, write and share creative work.</p>
-      </div>
-
-      <div class="card" onclick="showPage('marketplace')">
-        <div class="card-icon">🛍️</div>
-        <h3>Marketplace</h3>
-        <p>Explore products, services and opportunities.</p>
-      </div>
-
-      <div class="card" onclick="showPage('wallet')">
-        <div class="card-icon">💜</div>
-        <h3>My Wallet</h3>
-        <p>Access your wallet and transaction history.</p>
-      </div>
-
+      <div class="card" onclick="showPage('discover')"><div class="card-icon">🤝</div><h3>Discover People</h3><p>Find friends, companions and people who share your interests.</p></div>
+      <div class="card" onclick="showPage('games')"><div class="card-icon">🎮</div><h3>Play Games</h3><p>Challenge friends and enjoy friendly competition.</p></div>
+      <div class="card" onclick="showPage('entertainment')"><div class="card-icon">🎬</div><h3>Entertainment</h3><p>Explore digital entertainment and fresh ideas.</p></div>
+      <div class="card" onclick="showPage('books')"><div class="card-icon">📚</div><h3>Books & Writing</h3><p>Read, write and share creative work.</p></div>
+      <div class="card" onclick="showPage('marketplace')"><div class="card-icon">🛍️</div><h3>Marketplace</h3><p>Explore products, services and opportunities.</p></div>
+      <div class="card" onclick="showPage('wallet')"><div class="card-icon">💜</div><h3>My Wallet</h3><p>Access your wallet and transaction history.</p></div>
     </div>
   </div>
-
-  <div class="community">
-    <h2>One Community. Many Possibilities.</h2>
-    <p>
-      Hustle Ndogo is where ideas meet opportunities,
-      creativity meets community and possibilities begin.
-    </p>
-    <button class="primary" onclick="showPage('discover')">
-      Explore Now
-    </button>
-  </div>
-
+  <div class="community"><h2>One Community. Many Possibilities.</h2><p>Hustle Ndogo is where ideas meet opportunities, creativity meets community and possibilities begin.</p><button class="primary" onclick="showPage('discover')">Explore Now</button></div>
 </section>
-
-<!-- DISCOVER -->
 
 <section class="page" id="discover">
-  <div class="page-heading">
-    <div class="eyebrow">FIND YOUR NEXT MOVE</div>
-    <h1>Discover</h1>
-    <p>Explore opportunities, connections and new possibilities.</p>
-  </div>
-
+  <div class="page-heading"><div class="eyebrow">FIND YOUR NEXT MOVE</div><h1>Discover</h1><p>Explore opportunities, connections and new possibilities.</p></div>
   <div class="grid">
-    <div class="card">
-      <div class="card-icon">💻</div>
-      <span class="tag">DIGITAL</span>
-      <h3>Online Opportunities</h3>
-      <p>Remote work, AI tasks and digital opportunities.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">🏪</div>
-      <span class="tag">BUSINESS</span>
-      <h3>Small Businesses</h3>
-      <p>Explore practical business ideas and ventures.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">🎓</div>
-      <span class="tag">STUDENTS</span>
-      <h3>Student Hustles</h3>
-      <p>Explore opportunities around student life.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">🧠</div>
-      <span class="tag">SKILLS</span>
-      <h3>Learn & Grow</h3>
-      <p>Develop skills that open new doors.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">🤝</div>
-      <span class="tag">COMMUNITY</span>
-      <h3>Connections</h3>
-      <p>Meet people and build meaningful connections.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">💡</div>
-      <span class="tag">IDEAS</span>
-      <h3>Fresh Ideas</h3>
-      <p>Discover new ways to approach everyday challenges.</p>
-    </div>
+    <div class="card"><div class="card-icon">💻</div><span class="tag">DIGITAL</span><h3>Online Opportunities</h3><p>Remote work, AI tasks and digital opportunities.</p></div>
+    <div class="card"><div class="card-icon">🏪</div><span class="tag">BUSINESS</span><h3>Small Businesses</h3><p>Explore practical business ideas and ventures.</p></div>
+    <div class="card"><div class="card-icon">🎓</div><span class="tag">STUDENTS</span><h3>Student Hustles</h3><p>Explore opportunities around student life.</p></div>
+    <div class="card"><div class="card-icon">🧠</div><span class="tag">SKILLS</span><h3>Learn & Grow</h3><p>Develop skills that open new doors.</p></div>
+    <div class="card"><div class="card-icon">🤝</div><span class="tag">COMMUNITY</span><h3>Connections</h3><p>Meet people and build meaningful connections.</p></div>
+    <div class="card"><div class="card-icon">💡</div><span class="tag">IDEAS</span><h3>Fresh Ideas</h3><p>Discover new ways to approach everyday challenges.</p></div>
   </div>
 </section>
-
-<!-- GAMES -->
 
 <section class="page" id="games">
-  <div class="page-heading">
-    <div class="eyebrow">CHALLENGE YOURSELF</div>
-    <h1>Games & Challenges</h1>
-    <p>Fun, competition and a little friendly pressure.</p>
-  </div>
-
+  <div class="page-heading"><div class="eyebrow">CHALLENGE YOURSELF</div><h1>Games & Challenges</h1><p>Fun, competition and a little friendly pressure.</p></div>
   <div class="grid">
-    <div class="card">
-      <div class="card-icon">🧠</div>
-      <h3>Trivia</h3>
-      <p>Test your general knowledge.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">🔤</div>
-      <h3>Word Challenges</h3>
-      <p>Put your vocabulary to the test.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">🏆</div>
-      <h3>Competitions</h3>
-      <p>Take part in community challenges.</p>
-    </div>
+    <div class="card"><div class="card-icon">🧠</div><h3>Trivia</h3><p>Test your general knowledge.</p></div>
+    <div class="card"><div class="card-icon">🔤</div><h3>Word Challenges</h3><p>Put your vocabulary to the test.</p></div>
+    <div class="card"><div class="card-icon">🏆</div><h3>Competitions</h3><p>Take part in community challenges.</p></div>
   </div>
 </section>
-
-<!-- ENTERTAINMENT -->
 
 <section class="page" id="entertainment">
-  <div class="page-heading">
-    <div class="eyebrow">YOUR ENTERTAINMENT SPACE</div>
-    <h1>Entertainment</h1>
-    <p>Discover something interesting, inspiring or entertaining.</p>
-  </div>
-
+  <div class="page-heading"><div class="eyebrow">YOUR ENTERTAINMENT SPACE</div><h1>Entertainment</h1><p>Discover something interesting, inspiring or entertaining.</p></div>
   <div class="grid">
-    <div class="card">
-      <div class="card-icon">🎬</div>
-      <h3>Movies & Series</h3>
-      <p>Explore entertainment recommendations.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">🎵</div>
-      <h3>Music</h3>
-      <p>Discover music and musical culture.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">✨</div>
-      <h3>Trending</h3>
-      <p>Explore interesting topics and conversations.</p>
-    </div>
+    <div class="card"><div class="card-icon">🎬</div><h3>Movies & Series</h3><p>Explore entertainment recommendations.</p></div>
+    <div class="card"><div class="card-icon">🎵</div><h3>Music</h3><p>Discover music and musical culture.</p></div>
+    <div class="card"><div class="card-icon">✨</div><h3>Trending</h3><p>Explore interesting topics and conversations.</p></div>
   </div>
 </section>
-
-<!-- BOOKS -->
 
 <section class="page" id="books">
-  <div class="page-heading">
-    <div class="eyebrow">WORDS HAVE POWER</div>
-    <h1>Books & Writing</h1>
-    <p>A space for readers, thinkers and storytellers.</p>
-  </div>
-
+  <div class="page-heading"><div class="eyebrow">WORDS HAVE POWER</div><h1>Books & Writing</h1><p>A space for readers, thinkers and storytellers.</p></div>
   <div class="grid">
-    <div class="card">
-      <div class="card-icon">📖</div>
-      <h3>Reading Corner</h3>
-      <p>Explore books and reading recommendations.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">✍️</div>
-      <h3>Creative Writing</h3>
-      <p>Share poetry, stories and original writing.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">📝</div>
-      <h3>Articles & Ideas</h3>
-      <p>Explore thoughts, research and perspectives.</p>
-    </div>
+    <div class="card"><div class="card-icon">📖</div><h3>Reading Corner</h3><p>Explore books and reading recommendations.</p></div>
+    <div class="card"><div class="card-icon">✍️</div><h3>Creative Writing</h3><p>Share poetry, stories and original writing.</p></div>
+    <div class="card"><div class="card-icon">📝</div><h3>Articles & Ideas</h3><p>Explore thoughts, research and perspectives.</p></div>
   </div>
 </section>
-
-<!-- MARKETPLACE -->
 
 <section class="page" id="marketplace">
-  <div class="page-heading">
-    <div class="eyebrow">TRADE. CONNECT. GROW.</div>
-    <h1>Marketplace</h1>
-    <p>A place for products, services and business connections.</p>
-  </div>
-
+  <div class="page-heading"><div class="eyebrow">TRADE. CONNECT. GROW.</div><h1>Marketplace</h1><p>A place for products, services and business connections.</p></div>
   <div class="grid">
-    <div class="card">
-      <div class="card-icon">🛒</div>
-      <h3>Products</h3>
-      <p>Explore goods offered by the community.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">🧰</div>
-      <h3>Services</h3>
-      <p>Discover skills and services from other members.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">📢</div>
-      <h3>Promote Your Hustle</h3>
-      <p>Give your business an opportunity to be discovered.</p>
-    </div>
+    <div class="card"><div class="card-icon">🛒</div><h3>Products</h3><p>Explore goods offered by the community.</p></div>
+    <div class="card"><div class="card-icon">🧰</div><h3>Services</h3><p>Discover skills and services from other members.</p></div>
+    <div class="card"><div class="card-icon">📢</div><h3>Promote Your Hustle</h3><p>Give your business an opportunity to be discovered.</p></div>
   </div>
 </section>
-
-<!-- WALLET -->
 
 <section class="page" id="wallet">
-  <div class="page-heading">
-    <div class="eyebrow">YOUR FINANCIAL SPACE</div>
-    <h1>My Wallet</h1>
-    <p>Manage your wallet and keep track of transactions.</p>
-  </div>
-
+  <div class="page-heading"><div class="eyebrow">YOUR FINANCIAL SPACE</div><h1>My Wallet</h1><p>This is a preview only. No real funds or payments are connected yet.</p></div>
   <div class="wallet">
-
-    <div class="wallet-label">AVAILABLE BALANCE</div>
-
-    <div class="balance-row">
-      <div class="balance" id="balance">KSh 0.00</div>
-
-      <button class="hide-btn" id="hideBalance"
-        onclick="toggleBalance()">
-        Hide
-      </button>
-    </div>
-
-    <div class="wallet-bottom">
-      <span>Currency</span>
-      <strong>Kenyan Shilling (KES)</strong>
-    </div>
-
-    <div class="wallet-actions">
-      <button onclick="showPage('transactions')">
-        Transaction History
-      </button>
-      <button onclick="showPage('account')">
-        My Account
-      </button>
-    </div>
-
+    <div class="wallet-label">DEMO BALANCE</div>
+    <div class="balance-row"><div class="balance" id="balance">KSh 0.00</div><button class="hide-btn" id="hideBalance" onclick="toggleBalance()">Hide</button></div>
+    <div class="wallet-bottom"><span>Currency</span><strong>Kenyan Shilling (KES)</strong></div>
+    <div class="wallet-actions"><button onclick="showPage('transactions')">Transaction History</button><button onclick="showPage('account')">My Account</button></div>
   </div>
-
-  <div class="block" style="margin-top:35px">
-    <h2 class="section-title">Recent Transactions</h2>
-    <p class="section-sub">Your wallet activity.</p>
-
-    <div class="empty">
-      <div class="card-icon">💳</div>
-      <h3>No transactions yet</h3>
-      <p>Your transaction history will appear here.</p>
-    </div>
-  </div>
+  <div class="block" style="margin-top:35px"><h2 class="section-title">Recent Transactions</h2><p class="section-sub">Your wallet activity.</p><div class="empty"><div class="card-icon">💳</div><h3>No transactions yet</h3><p>Your transaction history will appear here.</p></div></div>
 </section>
-
-<!-- TRANSACTIONS -->
 
 <section class="page" id="transactions">
-  <div class="page-heading">
-    <div class="eyebrow">WALLET ACTIVITY</div>
-    <h1>Transaction History</h1>
-    <p>Keep track of your wallet activity.</p>
-  </div>
-
-  <div class="empty">
-    <div class="card-icon">📄</div>
-    <h3>No transactions yet</h3>
-    <p>Your transactions will appear here.</p>
-  </div>
-
-  <button class="primary" style="margin-top:20px"
-    onclick="showPage('wallet')">
-    Back to Wallet
-  </button>
+  <div class="page-heading"><div class="eyebrow">WALLET ACTIVITY</div><h1>Transaction History</h1><p>Keep track of your wallet activity.</p></div>
+  <div class="empty"><div class="card-icon">📄</div><h3>No transactions yet</h3><p>Your transactions will appear here.</p></div>
+  <button class="primary" style="margin-top:20px" onclick="showPage('wallet')">Back to Wallet</button>
 </section>
-
-<!-- ACCOUNT -->
 
 <section class="page" id="account">
-  <div class="page-heading">
-    <div class="eyebrow">YOUR HUSTLE NDOGO IDENTITY</div>
-    <h1>My Account</h1>
-    <p>Your personal space on Hustle Ndogo KE.</p>
-  </div>
-
-  <div class="grid">
-    <div class="card">
-      <div class="card-icon">👤</div>
-      <h3>Personal Profile</h3>
-      <p>Your profile and personal information.</p>
+  <div class="page-heading"><div class="eyebrow">YOUR HUSTLE NDOGO IDENTITY</div><h1>My Account</h1><p>Create an account or sign in using your email address or mobile number.</p></div>
+  <div class="auth-wrap">
+    <div id="signedOutArea">
+      <div class="auth-card">
+        <h2>Email registration / login</h2><p>Use an email address and password to create your account or sign in.</p>
+        <div class="field"><label for="fullName">Your name (for new accounts)</label><input id="fullName" type="text" autocomplete="name" placeholder="e.g. Ian Kamau"></div>
+        <div class="field"><label for="email">Email address</label><input id="email" type="email" autocomplete="email" placeholder="you@example.com"></div>
+        <div class="field"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" placeholder="At least 6 characters"></div>
+        <div class="form-row">
+          <button class="primary" id="registerEmailBtn" type="button">Create account</button>
+          <button class="primary" id="loginEmailBtn" type="button">Sign in</button>
+          <button class="link-btn" id="resetPasswordBtn" type="button">Forgot password?</button>
+        </div>
+        <div id="emailStatus" class="status" role="status" aria-live="polite"></div>
+      </div>
+      <div class="auth-card">
+        <h2>Phone number registration / login</h2><p>Enter your number in international format. For Kenya, use +254 followed by your number without the first zero.</p>
+        <div class="field"><label for="phoneNumber">Mobile number</label><input id="phoneNumber" type="tel" autocomplete="tel" placeholder="+2547XXXXXXXX"></div>
+        <div id="recaptcha-container"></div>
+        <div class="form-row"><button class="primary" id="sendCodeBtn" type="button">Send verification code</button></div>
+        <div id="codeArea" class="hidden">
+          <div class="field"><label for="smsCode">SMS verification code</label><input id="smsCode" type="text" inputmode="numeric" autocomplete="one-time-code" placeholder="Enter the code sent to your phone"></div>
+          <button class="primary" id="verifyCodeBtn" type="button">Verify & sign in</button>
+        </div>
+        <div id="phoneStatus" class="status" role="status" aria-live="polite"></div>
+        <p class="small-note">Phone sign-in uses Google's reCAPTCHA protection. Firebase's free Spark plan has a limited daily SMS quota, which may restrict testing.</p>
+      </div>
     </div>
 
-    <div class="card">
-      <div class="card-icon">🔐</div>
-      <h3>Registration & Login</h3>
-      <p>Account access using your phone number or email.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">⚙️</div>
-      <h3>Account Settings</h3>
-      <p>Manage your preferences and account details.</p>
+    <div id="signedInArea" class="hidden">
+      <div class="auth-card">
+        <div class="account-summary"><div class="avatar">👤</div><div><h2 id="profileName">Welcome</h2><p id="profileContact" class="small-note"></p></div></div>
+        <p>You are signed in to Hustle Ndogo KE.</p>
+        <div id="accountStatus" class="status show info">Your account is active.</div>
+        <div class="form-row"><button class="primary" id="signOutBtn" type="button">Sign out</button></div>
+      </div>
     </div>
   </div>
 </section>
-
 </main>
 
-<footer>
-  <strong>HUSTLE NDOGO KE</strong>
-  <p>Small Hustles. Big Possibilities.</p>
-  <p>© 2026 Hustle Ndogo KE. All rights reserved.</p>
-</footer>
+<footer><strong>HUSTLE NDOGO KE</strong><p>Small Hustles. Big Possibilities.</p><p>© 2026 Hustle Ndogo KE. All rights reserved.</p></footer>
 
-<script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-app.js";
+import {
+  getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,
+  signOut, onAuthStateChanged, sendPasswordResetEmail, updateProfile,
+  RecaptchaVerifier, signInWithPhoneNumber
+} from "https://www.gstatic.com/firebasejs/13.3.0/firebase-auth.js";
+import {
+  getFirestore, doc, setDoc, serverTimestamp
+} from "https://www.gstatic.com/firebasejs/13.3.0/firebase-firestore.js";
 
-// NAVIGATION
+// Firebase web configuration for the Hustle Ndogo KE project.
+const firebaseConfig = {
+  apiKey: "AIzaSyBPnr2WGGyNLVnUHB9zTH-IAzeLTC8jJGg",
+  authDomain: "hustle-ndogo-ke.firebaseapp.com",
+  projectId: "hustle-ndogo-ke",
+  storageBucket: "hustle-ndogo-ke.firebasestorage.app",
+  messagingSenderId: "232063329171",
+  appId: "1:232063329171:web:97b35d6820f505d0d5be66",
+  measurementId: "G-SCVT4S5BCV"
+};
 
-function showPage(page) {
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+window.showPage = function(page) {
   const target = document.getElementById(page);
-
   if (!target) return;
-
-  document.querySelectorAll('.page').forEach(section => {
-    section.classList.remove('active');
-  });
-
+  document.querySelectorAll('.page').forEach(section => section.classList.remove('active'));
   target.classList.add('active');
-
   document.querySelectorAll('.nav-btn').forEach(button => {
-    button.classList.toggle(
-      'active',
-      button.dataset.page === page
-    );
+    button.classList.toggle('active', button.dataset.page === page);
   });
-
   window.scrollTo({top:0,behavior:'smooth'});
-}
-
-// NAV BUTTONS
+};
 
 document.querySelectorAll('.nav-btn').forEach(button => {
-  button.addEventListener('click', () => {
-    showPage(button.dataset.page);
-  });
+  button.addEventListener('click', () => window.showPage(button.dataset.page));
 });
-
-// WALLET BALANCE VISIBILITY
 
 let balanceHidden = false;
-
-function toggleBalance() {
+window.toggleBalance = function() {
   balanceHidden = !balanceHidden;
+  document.getElementById('balance').textContent = balanceHidden ? 'KSh ••••••' : 'KSh 0.00';
+  document.getElementById('hideBalance').textContent = balanceHidden ? 'Show' : 'Hide';
+};
 
-  document.getElementById('balance').textContent =
-    balanceHidden ? 'KSh ••••••' : 'KSh 0.00';
-
-  document.getElementById('hideBalance').textContent =
-    balanceHidden ? 'Show' : 'Hide';
-}
-
-// THEMES
-
+// Theme preference
 const themeSelect = document.getElementById('themeSelect');
-
 function applyTheme(theme) {
   let selected = theme;
-
   if (theme === 'system') {
-    selected = window.matchMedia(
-      '(prefers-color-scheme: light)'
-    ).matches ? 'light' : 'dark';
+    selected = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
   }
-
-  document.body.classList.toggle(
-    'light',
-    selected === 'light'
-  );
+  document.body.classList.toggle('light', selected === 'light');
 }
-
 themeSelect.addEventListener('change', () => {
-  localStorage.setItem('hustle-theme',themeSelect.value);
+  localStorage.setItem('hustle-theme', themeSelect.value);
   applyTheme(themeSelect.value);
 });
-
 const savedTheme = localStorage.getItem('hustle-theme') || 'system';
-
 themeSelect.value = savedTheme;
 applyTheme(savedTheme);
+window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', () => {
+  if (themeSelect.value === 'system') applyTheme('system');
+});
 
-// UPDATE SYSTEM THEME WHEN SYSTEM MODE IS SELECTED
+function showStatus(id, message, type='info') {
+  const box = document.getElementById(id);
+  box.textContent = message;
+  box.className = `status show ${type}`;
+}
+function friendlyError(error) {
+  const messages = {
+    'auth/email-already-in-use':'That email address already has an account. Try signing in.',
+    'auth/invalid-email':'Please enter a valid email address.',
+    'auth/weak-password':'Choose a stronger password with at least 6 characters.',
+    'auth/user-not-found':'No account was found with those details.',
+    'auth/wrong-password':'The password is incorrect.',
+    'auth/invalid-credential':'The email/phone or password is incorrect.',
+    'auth/too-many-requests':'Too many attempts. Please wait and try again later.',
+    'auth/operation-not-allowed':'This sign-in method is not enabled in Firebase Authentication.',
+    'auth/invalid-phone-number':'Enter your phone number in international format, e.g. +2547XXXXXXXX.',
+    'auth/quota-exceeded':'Firebase SMS quota has been reached. Try again later or use email sign-in.',
+    'auth/captcha-check-failed':'reCAPTCHA could not be verified. Refresh the page and try again.',
+    'auth/unauthorized-domain':'This website domain is not authorised in Firebase Authentication settings.',
+    'auth/network-request-failed':'Network problem. Check your internet connection and try again.'
+  };
+  return messages[error.code] || `${error.message || 'Something went wrong.'} (${error.code || 'unknown error'})`;
+}
 
-window.matchMedia('(prefers-color-scheme: light)')
-  .addEventListener('change', () => {
-    if (themeSelect.value === 'system') {
-      applyTheme('system');
+async function saveUserProfile(user, extra={}) {
+  const profile = {
+    uid: user.uid,
+    displayName: user.displayName || extra.displayName || '',
+    email: user.email || null,
+    phoneNumber: user.phoneNumber || null,
+    updatedAt: serverTimestamp(),
+    ...extra
+  };
+  await setDoc(doc(db, 'users', user.uid), profile, {merge:true});
+}
+
+document.getElementById('registerEmailBtn').addEventListener('click', async () => {
+  const name = document.getElementById('fullName').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  if (!name) return showStatus('emailStatus', 'Please enter your name before creating an account.', 'error');
+  if (!email || !password) return showStatus('emailStatus', 'Enter your email address and password.', 'error');
+  if (password.length < 6) return showStatus('emailStatus', 'Your password must contain at least 6 characters.', 'error');
+  try {
+    const credential = await createUserWithEmailAndPassword(auth, email, password);
+    await updateProfile(credential.user, {displayName:name});
+    try {
+      await saveUserProfile(credential.user, {displayName:name, createdAt:serverTimestamp()});
+    } catch (profileError) {
+      console.warn('Profile document was not saved:', profileError);
+      showStatus('emailStatus', 'Your login account was created, but the profile database is not ready yet. Complete the Firestore setup steps before using stored profiles.', 'info');
     }
-  });
+    showStatus('emailStatus', 'Your account has been created successfully.', 'success');
+  } catch (error) {
+    showStatus('emailStatus', friendlyError(error), 'error');
+  }
+});
 
+document.getElementById('loginEmailBtn').addEventListener('click', async () => {
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  if (!email || !password) return showStatus('emailStatus', 'Enter your email address and password.', 'error');
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+    showStatus('emailStatus', 'You are signed in.', 'success');
+  } catch (error) {
+    showStatus('emailStatus', friendlyError(error), 'error');
+  }
+});
+
+document.getElementById('resetPasswordBtn').addEventListener('click', async () => {
+  const email = document.getElementById('email').value.trim();
+  if (!email) return showStatus('emailStatus', 'Enter your email address first, then tap Forgot password.', 'error');
+  try {
+    await sendPasswordResetEmail(auth, email);
+    showStatus('emailStatus', 'If an account exists for that email, Firebase has sent a password-reset email. Check your inbox and spam folder.', 'success');
+  } catch (error) {
+    showStatus('emailStatus', friendlyError(error), 'error');
+  }
+});
+
+// Phone authentication: reCAPTCHA is created when the user requests an SMS.
+let recaptchaVerifier = null;
+let confirmationResult = null;
+async function getRecaptchaVerifier() {
+  if (recaptchaVerifier) {
+    try { await recaptchaVerifier.clear(); } catch (_) {}
+    recaptchaVerifier = null;
+  }
+  recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {size:'normal'});
+  await recaptchaVerifier.render();
+  return recaptchaVerifier;
+}
+
+document.getElementById('sendCodeBtn').addEventListener('click', async () => {
+  const phone = document.getElementById('phoneNumber').value.trim();
+  if (!/^\+[1-9]\d{7,14}$/.test(phone)) {
+    return showStatus('phoneStatus', 'Use international format, for example +2547XXXXXXXX. Include the +254 country code.', 'error');
+  }
+  const button = document.getElementById('sendCodeBtn');
+  button.disabled = true;
+  button.textContent = 'Sending...';
+  try {
+    const verifier = await getRecaptchaVerifier();
+    confirmationResult = await signInWithPhoneNumber(auth, phone, verifier);
+    document.getElementById('codeArea').classList.remove('hidden');
+    showStatus('phoneStatus', 'Verification code sent. Enter the SMS code above.', 'success');
+  } catch (error) {
+    showStatus('phoneStatus', friendlyError(error), 'error');
+    if (recaptchaVerifier) {
+      try { await recaptchaVerifier.clear(); } catch (_) {}
+      recaptchaVerifier = null;
+    }
+  } finally {
+    button.disabled = false;
+    button.textContent = 'Send verification code';
+  }
+});
+
+document.getElementById('verifyCodeBtn').addEventListener('click', async () => {
+  const code = document.getElementById('smsCode').value.trim();
+  if (!confirmationResult) return showStatus('phoneStatus', 'Request a verification code first.', 'error');
+  if (!code) return showStatus('phoneStatus', 'Enter the verification code sent to your phone.', 'error');
+  try {
+    const credential = await confirmationResult.confirm(code);
+    try {
+      await saveUserProfile(credential.user);
+    } catch (profileError) {
+      console.warn('Profile document was not saved:', profileError);
+      showStatus('phoneStatus', 'Your phone number is verified and you are signed in, but the profile database is not ready yet. Complete the Firestore setup steps.', 'info');
+    }
+    showStatus('phoneStatus', 'Phone number verified. You are signed in.', 'success');
+    document.getElementById('codeArea').classList.add('hidden');
+  } catch (error) {
+    showStatus('phoneStatus', friendlyError(error), 'error');
+  }
+});
+
+document.getElementById('signOutBtn').addEventListener('click', async () => {
+  try {
+    await signOut(auth);
+    showPage('home');
+  } catch (error) {
+    showStatus('accountStatus', friendlyError(error), 'error');
+  }
+});
+
+// Keep the account screen in sync with Firebase Authentication.
+onAuthStateChanged(auth, async (user) => {
+  const signedOutArea = document.getElementById('signedOutArea');
+  const signedInArea = document.getElementById('signedInArea');
+  const joinButton = document.getElementById('joinButton');
+  if (user) {
+    signedOutArea.classList.add('hidden');
+    signedInArea.classList.remove('hidden');
+    document.getElementById('profileName').textContent = user.displayName || 'Welcome to Hustle Ndogo';
+    document.getElementById('profileContact').textContent = user.email || user.phoneNumber || 'Signed-in account';
+    joinButton.textContent = 'My Account';
+    try {
+      await saveUserProfile(user);
+    } catch (error) {
+      console.warn('Could not sync profile to Firestore:', error);
+      showStatus('accountStatus', 'You are signed in. Profile storage will work after Firestore is enabled and secured.', 'info');
+    }
+  } else {
+    signedInArea.classList.add('hidden');
+    signedOutArea.classList.remove('hidden');
+    joinButton.textContent = 'Join Us';
+  }
+});
 </script>
-
 </body>
 </html>
