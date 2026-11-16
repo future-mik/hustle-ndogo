@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,7 @@
 body.light{--bg:#f6f2fb;--surface:#fff;--surface2:#eee6f8;--text:#241432;--muted:#74647f;--border:#e0d3ec}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;transition:background .2s,color .2s}
-button,input{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}
+button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.6;cursor:not-allowed}a{color:inherit;text-decoration:none}
 header{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--border)}
 .topbar{min-height:75px;padding:12px 5%;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:1px;font-size:17px}
@@ -73,398 +74,422 @@ footer{border-top:1px solid var(--border);text-align:center;padding:30px 15px;co
 </head>
 <body>
 <header>
-  <div class="topbar">
-    <a class="brand" href="#" onclick="showPage('home');return false">
-      <div class="brand-icon">H</div><span>HUSTLE NDOGO<small>KENYA • KE</small></span>
-    </a>
-    <div class="top-actions">
-      <select class="theme-select" id="themeSelect" aria-label="Choose theme">
-        <option value="system">System</option><option value="dark">Dark</option><option value="light">Light</option>
-      </select>
-      <button class="account-btn" id="joinButton" onclick="showPage('account')">Join Us</button>
-    </div>
-  </div>
-  <nav id="navigation">
-    <button class="nav-btn active" data-page="home">Home</button>
-    <button class="nav-btn" data-page="discover">Discover</button>
-    <button class="nav-btn" data-page="games">Games</button>
-    <button class="nav-btn" data-page="entertainment">Entertainment</button>
-    <button class="nav-btn" data-page="books">Books & Writing</button>
-    <button class="nav-btn" data-page="marketplace">Marketplace</button>
-    <button class="nav-btn" data-page="wallet">Wallet</button>
-    <button class="nav-btn" data-page="account">Account</button>
-  </nav>
+<div class="topbar">
+<a class="brand" href="#" onclick="showPage('home');return false">
+<div class="brand-icon">H</div><span>HUSTLE NDOGO<small>KENYA • KE</small></span>
+</a>
+<div class="top-actions">
+<select class="theme-select" id="themeSelect" aria-label="Choose theme">
+<option value="system">System</option><option value="dark">Dark</option><option value="light">Light</option>
+</select>
+<button class="account-btn" id="joinButton" onclick="showPage('account')">Join Us</button>
+</div>
+</div>
+<nav id="navigation">
+<button class="nav-btn active" data-page="home">Home</button>
+<button class="nav-btn" data-page="discover">Discover</button>
+<button class="nav-btn" data-page="games">Games</button>
+<button class="nav-btn" data-page="entertainment">Entertainment</button>
+<button class="nav-btn" data-page="books">Books & Writing</button>
+<button class="nav-btn" data-page="marketplace">Marketplace</button>
+<button class="nav-btn" data-page="wallet">Wallet</button>
+<button class="nav-btn" data-page="account">Account</button>
+</nav>
 </header>
 
 <main>
 <section class="page active" id="home">
-  <div class="hero">
-    <div class="eyebrow">A LITTLE SPACE FOR BIG POSSIBILITIES</div>
-    <h1>Connect. Play.<br>Create. Earn.</h1>
-    <p>Meet people, enjoy games, discover fresh opportunities, share your writing and put your hustle in front of more people.</p>
-    <button class="primary" onclick="showPage('discover')">Explore Hustle Ndogo →</button>
-    <button class="secondary" onclick="showPage('account')">Join the Community</button>
-  </div>
-  <div class="block">
-    <h2 class="section-title">Explore the platform</h2><p class="section-sub">Five spaces. One growing community.</p>
-    <div class="grid">
-      <div class="card" onclick="showPage('discover')"><div class="card-icon">🤝</div><h3>Discover People</h3><p>Find friends, companions and people who share your interests.</p></div>
-      <div class="card" onclick="showPage('games')"><div class="card-icon">🎮</div><h3>Play Games</h3><p>Challenge friends and enjoy friendly competition.</p></div>
-      <div class="card" onclick="showPage('entertainment')"><div class="card-icon">🎬</div><h3>Entertainment</h3><p>Explore digital entertainment and fresh ideas.</p></div>
-      <div class="card" onclick="showPage('books')"><div class="card-icon">📚</div><h3>Books & Writing</h3><p>Read, write and share creative work.</p></div>
-      <div class="card" onclick="showPage('marketplace')"><div class="card-icon">🛍️</div><h3>Marketplace</h3><p>Explore products, services and opportunities.</p></div>
-      <div class="card" onclick="showPage('wallet')"><div class="card-icon">💜</div><h3>My Wallet</h3><p>Access your wallet and transaction history.</p></div>
-    </div>
-  </div>
-  <div class="community"><h2>One Community. Many Possibilities.</h2><p>Hustle Ndogo is where ideas meet opportunities, creativity meets community and possibilities begin.</p><button class="primary" onclick="showPage('discover')">Explore Now</button></div>
+<div class="hero">
+<div class="eyebrow">A LITTLE SPACE FOR BIG POSSIBILITIES</div>
+<h1>Connect. Play.<br>Create. Earn.</h1>
+<p>Meet people, enjoy games, discover fresh opportunities, share your writing and put your hustle in front of more people.</p>
+<button class="primary" onclick="showPage('discover')">Explore Hustle Ndogo →</button>
+<button class="secondary" onclick="showPage('account')">Join the Community</button>
+</div>
+<div class="block">
+<h2 class="section-title">Explore the platform</h2><p class="section-sub">Five spaces. One growing community.</p>
+<div class="grid">
+<div class="card" onclick="showPage('discover')"><div class="card-icon">🤝</div><h3>Discover People</h3><p>Find friends, companions and people who share your interests.</p></div>
+<div class="card" onclick="showPage('games')"><div class="card-icon">🎮</div><h3>Play Games</h3><p>Challenge friends and enjoy friendly competition.</p></div>
+<div class="card" onclick="showPage('entertainment')"><div class="card-icon">🎬</div><h3>Entertainment</h3><p>Explore digital entertainment and fresh ideas.</p></div>
+<div class="card" onclick="showPage('books')"><div class="card-icon">📚</div><h3>Books & Writing</h3><p>Read, write and share creative work.</p></div>
+<div class="card" onclick="showPage('marketplace')"><div class="card-icon">🛍️</div><h3>Marketplace</h3><p>Explore products, services and opportunities.</p></div>
+<div class="card" onclick="showPage('wallet')"><div class="card-icon">💜</div><h3>My Wallet</h3><p>Access your wallet and transaction history.</p></div>
+</div>
+</div>
+<div class="community"><h2>One Community. Many Possibilities.</h2><p>Hustle Ndogo is where ideas meet opportunities, creativity meets community and possibilities begin.</p><button class="primary" onclick="showPage('discover')">Explore Now</button></div>
 </section>
 
 <section class="page" id="discover">
-  <div class="page-heading"><div class="eyebrow">FIND YOUR NEXT MOVE</div><h1>Discover</h1><p>Explore opportunities, connections and new possibilities.</p></div>
-  <div class="grid">
-    <div class="card"><div class="card-icon">💻</div><span class="tag">DIGITAL</span><h3>Online Opportunities</h3><p>Remote work, AI tasks and digital opportunities.</p></div>
-    <div class="card"><div class="card-icon">🏪</div><span class="tag">BUSINESS</span><h3>Small Businesses</h3><p>Explore practical business ideas and ventures.</p></div>
-    <div class="card"><div class="card-icon">🎓</div><span class="tag">STUDENTS</span><h3>Student Hustles</h3><p>Explore opportunities around student life.</p></div>
-    <div class="card"><div class="card-icon">🧠</div><span class="tag">SKILLS</span><h3>Learn & Grow</h3><p>Develop skills that open new doors.</p></div>
-    <div class="card"><div class="card-icon">🤝</div><span class="tag">COMMUNITY</span><h3>Connections</h3><p>Meet people and build meaningful connections.</p></div>
-    <div class="card"><div class="card-icon">💡</div><span class="tag">IDEAS</span><h3>Fresh Ideas</h3><p>Discover new ways to approach everyday challenges.</p></div>
-  </div>
+<div class="page-heading"><div class="eyebrow">FIND YOUR NEXT MOVE</div><h1>Discover</h1><p>Explore opportunities, connections and new possibilities.</p></div>
+<div class="grid">
+<div class="card"><div class="card-icon">💻</div><span class="tag">DIGITAL</span><h3>Online Opportunities</h3><p>Remote work, AI tasks and digital opportunities.</p></div>
+<div class="card"><div class="card-icon">🏪</div><span class="tag">BUSINESS</span><h3>Small Businesses</h3><p>Explore practical business ideas and ventures.</p></div>
+<div class="card"><div class="card-icon">🎓</div><span class="tag">STUDENTS</span><h3>Student Hustles</h3><p>Explore opportunities around student life.</p></div>
+<div class="card"><div class="card-icon">🧠</div><span class="tag">SKILLS</span><h3>Learn & Grow</h3><p>Develop skills that open new doors.</p></div>
+<div class="card"><div class="card-icon">🤝</div><span class="tag">COMMUNITY</span><h3>Connections</h3><p>Meet people and build meaningful connections.</p></div>
+<div class="card"><div class="card-icon">💡</div><span class="tag">IDEAS</span><h3>Fresh Ideas</h3><p>Discover new ways to approach everyday challenges.</p></div>
+</div>
 </section>
 
 <section class="page" id="games">
-  <div class="page-heading"><div class="eyebrow">CHALLENGE YOURSELF</div><h1>Games & Challenges</h1><p>Fun, competition and a little friendly pressure.</p></div>
-  <div class="grid">
-    <div class="card"><div class="card-icon">🧠</div><h3>Trivia</h3><p>Test your general knowledge.</p></div>
-    <div class="card"><div class="card-icon">🔤</div><h3>Word Challenges</h3><p>Put your vocabulary to the test.</p></div>
-    <div class="card"><div class="card-icon">🏆</div><h3>Competitions</h3><p>Take part in community challenges.</p></div>
-  </div>
+<div class="page-heading"><div class="eyebrow">CHALLENGE YOURSELF</div><h1>Games & Challenges</h1><p>Fun, competition and a little friendly pressure.</p></div>
+<div class="grid">
+<div class="card"><div class="card-icon">🧠</div><h3>Trivia</h3><p>Test your general knowledge.</p></div>
+<div class="card"><div class="card-icon">🔤</div><h3>Word Challenges</h3><p>Put your vocabulary to the test.</p></div>
+<div class="card"><div class="card-icon">🏆</div><h3>Competitions</h3><p>Take part in community challenges.</p></div>
+</div>
 </section>
 
 <section class="page" id="entertainment">
-  <div class="page-heading"><div class="eyebrow">YOUR ENTERTAINMENT SPACE</div><h1>Entertainment</h1><p>Discover something interesting, inspiring or entertaining.</p></div>
-  <div class="grid">
-    <div class="card"><div class="card-icon">🎬</div><h3>Movies & Series</h3><p>Explore entertainment recommendations.</p></div>
-    <div class="card"><div class="card-icon">🎵</div><h3>Music</h3><p>Discover music and musical culture.</p></div>
-    <div class="card"><div class="card-icon">✨</div><h3>Trending</h3><p>Explore interesting topics and conversations.</p></div>
-  </div>
+<div class="page-heading"><div class="eyebrow">YOUR ENTERTAINMENT SPACE</div><h1>Entertainment</h1><p>Discover something interesting, inspiring or entertaining.</p></div>
+<div class="grid">
+<div class="card"><div class="card-icon">🎬</div><h3>Movies & Series</h3><p>Explore entertainment recommendations.</p></div>
+<div class="card"><div class="card-icon">🎵</div><h3>Music</h3><p>Discover music and musical culture.</p></div>
+<div class="card"><div class="card-icon">✨</div><h3>Trending</h3><p>Explore interesting topics and conversations.</p></div>
+</div>
 </section>
 
 <section class="page" id="books">
-  <div class="page-heading"><div class="eyebrow">WORDS HAVE POWER</div><h1>Books & Writing</h1><p>A space for readers, thinkers and storytellers.</p></div>
-  <div class="grid">
-    <div class="card"><div class="card-icon">📖</div><h3>Reading Corner</h3><p>Explore books and reading recommendations.</p></div>
-    <div class="card"><div class="card-icon">✍️</div><h3>Creative Writing</h3><p>Share poetry, stories and original writing.</p></div>
-    <div class="card"><div class="card-icon">📝</div><h3>Articles & Ideas</h3><p>Explore thoughts, research and perspectives.</p></div>
-  </div>
+<div class="page-heading"><div class="eyebrow">WORDS HAVE POWER</div><h1>Books & Writing</h1><p>A space for readers, thinkers and storytellers.</p></div>
+<div class="grid">
+<div class="card"><div class="card-icon">📖</div><h3>Reading Corner</h3><p>Explore books and reading recommendations.</p></div>
+<div class="card"><div class="card-icon">✍️</div><h3>Creative Writing</h3><p>Share poetry, stories and original writing.</p></div>
+<div class="card"><div class="card-icon">📝</div><h3>Articles & Ideas</h3><p>Explore thoughts, research and perspectives.</p></div>
+</div>
 </section>
 
 <section class="page" id="marketplace">
-  <div class="page-heading"><div class="eyebrow">TRADE. CONNECT. GROW.</div><h1>Marketplace</h1><p>A place for products, services and business connections.</p></div>
-  <div class="grid">
-    <div class="card"><div class="card-icon">🛒</div><h3>Products</h3><p>Explore goods offered by the community.</p></div>
-    <div class="card"><div class="card-icon">🧰</div><h3>Services</h3><p>Discover skills and services from other members.</p></div>
-    <div class="card"><div class="card-icon">📢</div><h3>Promote Your Hustle</h3><p>Give your business an opportunity to be discovered.</p></div>
-  </div>
+<div class="page-heading"><div class="eyebrow">TRADE. CONNECT. GROW.</div><h1>Marketplace</h1><p>A place for products, services and business connections.</p></div>
+<div class="grid">
+<div class="card"><div class="card-icon">🛒</div><h3>Products</h3><p>Explore goods offered by the community.</p></div>
+<div class="card"><div class="card-icon">🧰</div><h3>Services</h3><p>Discover skills and services from other members.</p></div>
+<div class="card"><div class="card-icon">📢</div><h3>Promote Your Hustle</h3><p>Give your business an opportunity to be discovered.</p></div>
+</div>
 </section>
 
 <section class="page" id="wallet">
-  <div class="page-heading"><div class="eyebrow">YOUR FINANCIAL SPACE</div><h1>My Wallet</h1><p>This is a preview only. No real funds or payments are connected yet.</p></div>
-  <div class="wallet">
-    <div class="wallet-label">DEMO BALANCE</div>
-    <div class="balance-row"><div class="balance" id="balance">KSh 0.00</div><button class="hide-btn" id="hideBalance" onclick="toggleBalance()">Hide</button></div>
-    <div class="wallet-bottom"><span>Currency</span><strong>Kenyan Shilling (KES)</strong></div>
-    <div class="wallet-actions"><button onclick="showPage('transactions')">Transaction History</button><button onclick="showPage('account')">My Account</button></div>
-  </div>
-  <div class="block" style="margin-top:35px"><h2 class="section-title">Recent Transactions</h2><p class="section-sub">Your wallet activity.</p><div class="empty"><div class="card-icon">💳</div><h3>No transactions yet</h3><p>Your transaction history will appear here.</p></div></div>
+<div class="page-heading"><div class="eyebrow">YOUR FINANCIAL SPACE</div><h1>My Wallet</h1><p>Manage your wallet and view your activity.</p></div>
+<div class="wallet">
+<div class="wallet-label">MY BALANCE</div>
+<div class="balance-row"><div class="balance" id="balance">KSh 0.00</div><button class="hide-btn" id="hideBalance" onclick="toggleBalance()">Hide</button></div>
+<div class="wallet-bottom"><span>Currency</span><strong>Kenyan Shilling (KES)</strong></div>
+<div class="wallet-actions"><button onclick="showPage('transactions')">Transaction History</button><button onclick="showPage('account')">My Account</button></div>
+</div>
+<div class="block" style="margin-top:35px"><h2 class="section-title">Recent Transactions</h2><p class="section-sub">Your wallet activity.</p><div class="empty"><div class="card-icon">💳</div><h3>No transactions yet</h3><p>Your transaction history will appear here.</p></div></div>
 </section>
 
 <section class="page" id="transactions">
-  <div class="page-heading"><div class="eyebrow">WALLET ACTIVITY</div><h1>Transaction History</h1><p>Keep track of your wallet activity.</p></div>
-  <div class="empty"><div class="card-icon">📄</div><h3>No transactions yet</h3><p>Your transactions will appear here.</p></div>
-  <button class="primary" style="margin-top:20px" onclick="showPage('wallet')">Back to Wallet</button>
+<div class="page-heading"><div class="eyebrow">WALLET ACTIVITY</div><h1>Transaction History</h1><p>Keep track of your wallet activity.</p></div>
+<div class="empty"><div class="card-icon">📄</div><h3>No transactions yet</h3><p>Your transactions will appear here.</p></div>
+<button class="primary" style="margin-top:20px" onclick="showPage('wallet')">Back to Wallet</button>
 </section>
 
 <section class="page" id="account">
-  <div class="page-heading"><div class="eyebrow">YOUR HUSTLE NDOGO IDENTITY</div><h1>My Account</h1><p>Create an account or sign in using your email address or mobile number.</p></div>
-  <div class="auth-wrap">
-    <div id="signedOutArea">
-      <div class="auth-card">
-        <h2>Email registration / login</h2><p>Use an email address and password to create your account or sign in.</p>
-        <div class="field"><label for="fullName">Your name (for new accounts)</label><input id="fullName" type="text" autocomplete="name" placeholder="e.g. Ian Kamau"></div>
-        <div class="field"><label for="email">Email address</label><input id="email" type="email" autocomplete="email" placeholder="you@example.com"></div>
-        <div class="field"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" placeholder="At least 6 characters"></div>
-        <div class="form-row">
-          <button class="primary" id="registerEmailBtn" type="button">Create account</button>
-          <button class="primary" id="loginEmailBtn" type="button">Sign in</button>
-          <button class="link-btn" id="resetPasswordBtn" type="button">Forgot password?</button>
-        </div>
-        <div id="emailStatus" class="status" role="status" aria-live="polite"></div>
-      </div>
-      <div class="auth-card">
-        <h2>Phone number registration / login</h2><p>Enter your number in international format. For Kenya, use +254 followed by your number without the first zero.</p>
-        <div class="field"><label for="phoneNumber">Mobile number</label><input id="phoneNumber" type="tel" autocomplete="tel" placeholder="+2547XXXXXXXX"></div>
-        <div id="recaptcha-container"></div>
-        <div class="form-row"><button class="primary" id="sendCodeBtn" type="button">Send verification code</button></div>
-        <div id="codeArea" class="hidden">
-          <div class="field"><label for="smsCode">SMS verification code</label><input id="smsCode" type="text" inputmode="numeric" autocomplete="one-time-code" placeholder="Enter the code sent to your phone"></div>
-          <button class="primary" id="verifyCodeBtn" type="button">Verify & sign in</button>
-        </div>
-        <div id="phoneStatus" class="status" role="status" aria-live="polite"></div>
-        <p class="small-note">Phone sign-in uses Google's reCAPTCHA protection. Firebase's free Spark plan has a limited daily SMS quota, which may restrict testing.</p>
-      </div>
-    </div>
+<div class="page-heading"><div class="eyebrow">YOUR HUSTLE NDOGO IDENTITY</div><h1>My Account</h1><p>Create an account or sign in using your email address or mobile number.</p></div>
+<div class="auth-wrap">
+<div id="signedOutArea">
+<div class="auth-card">
+<h2>Email registration / login</h2><p>Use an email address and password to create your account or sign in.</p>
+<div class="field"><label for="fullName">Your name (for new accounts)</label><input id="fullName" type="text" autocomplete="name" placeholder="e.g. Ian Kamau"></div>
+<div class="field"><label for="email">Email address</label><input id="email" type="email" autocomplete="email" placeholder="you@example.com"></div>
+<div class="field"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" placeholder="At least 6 characters"></div>
+<div class="form-row">
+<button class="primary" id="registerEmailBtn" type="button">Create account</button>
+<button class="primary" id="loginEmailBtn" type="button">Sign in</button>
+<button class="link-btn" id="resetPasswordBtn" type="button">Forgot password?</button>
+</div>
+<div id="emailStatus" class="status" role="status" aria-live="polite"></div>
+</div>
 
-    <div id="signedInArea" class="hidden">
-      <div class="auth-card">
-        <div class="account-summary"><div class="avatar">👤</div><div><h2 id="profileName">Welcome</h2><p id="profileContact" class="small-note"></p></div></div>
-        <p>You are signed in to Hustle Ndogo KE.</p>
-        <div id="accountStatus" class="status show info">Your account is active.</div>
-        <div class="form-row"><button class="primary" id="signOutBtn" type="button">Sign out</button></div>
-      </div>
-    </div>
-  </div>
+<div class="auth-card">
+<h2>Phone number registration / login</h2><p>Enter your Kenyan number. You can use 0712345678 or +254712345678.</p>
+<div class="field"><label for="phoneName">Your name (for new accounts)</label><input id="phoneName" type="text" autocomplete="name" placeholder="Your full name"></div>
+<div class="field"><label for="phoneNumber">Mobile number</label><input id="phoneNumber" type="tel" autocomplete="tel" placeholder="+2547XXXXXXXX"></div>
+<div id="recaptcha-container"></div>
+<div class="form-row"><button class="primary" id="sendCodeBtn" type="button">Send verification code</button></div>
+<div id="codeArea" class="hidden">
+<div class="field"><label for="smsCode">SMS verification code</label><input id="smsCode" type="text" inputmode="numeric" autocomplete="one-time-code" placeholder="Enter the code sent to your phone"></div>
+<button class="primary" id="verifyCodeBtn" type="button">Verify & sign in</button>
+</div>
+<div id="phoneStatus" class="status" role="status" aria-live="polite"></div>
+<p class="small-note">Phone sign-in uses Google's reCAPTCHA protection. Firebase SMS quotas and billing limits may apply.</p>
+</div>
+</div>
+
+<div id="signedInArea" class="hidden">
+<div class="auth-card">
+<div class="account-summary"><div class="avatar">👤</div><div><h2 id="profileName">Welcome</h2><p id="profileContact" class="small-note"></p></div></div>
+<p>You are signed in to Hustle Ndogo KE.</p>
+<div id="accountStatus" class="status show info">Your account is active.</div>
+<div class="form-row"><button class="primary" id="signOutBtn" type="button">Sign out</button></div>
+</div>
+</div>
+</div>
 </section>
 </main>
 
 <footer><strong>HUSTLE NDOGO KE</strong><p>Small Hustles. Big Possibilities.</p><p>© 2026 Hustle Ndogo KE. All rights reserved.</p></footer>
 
 <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-app.js";
-import {
-  getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,
-  signOut, onAuthStateChanged, sendPasswordResetEmail, updateProfile,
-  RecaptchaVerifier, signInWithPhoneNumber
-} from "https://www.gstatic.com/firebasejs/13.3.0/firebase-auth.js";
-import {
-  getFirestore, doc, setDoc, serverTimestamp
-} from "https://www.gstatic.com/firebasejs/13.3.0/firebase-firestore.js";
+import {initializeApp} from "https://www.gstatic.com/firebasejs/13.3.0/firebase-app.js";
+import {getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut,onAuthStateChanged,sendPasswordResetEmail,updateProfile,setPersistence,browserLocalPersistence,RecaptchaVerifier,signInWithPhoneNumber} from "https://www.gstatic.com/firebasejs/13.3.0/firebase-auth.js";
+import {getFirestore,doc,getDoc,setDoc,serverTimestamp} from "https://www.gstatic.com/firebasejs/13.3.0/firebase-firestore.js";
 
-// Firebase web configuration for the Hustle Ndogo KE project.
-const firebaseConfig = {
-  apiKey: "AIzaSyBPnr2WGGyNLVnUHB9zTH-IAzeLTC8jJGg",
-  authDomain: "hustle-ndogo-ke.firebaseapp.com",
-  projectId: "hustle-ndogo-ke",
-  storageBucket: "hustle-ndogo-ke.firebasestorage.app",
-  messagingSenderId: "232063329171",
-  appId: "1:232063329171:web:97b35d6820f505d0d5be66",
-  measurementId: "G-SCVT4S5BCV"
+const firebaseConfig={
+apiKey:"AIzaSyBPnr2WGGyNLVnUHB9zTH-IAzeLTC8jJGg",
+authDomain:"hustle-ndogo-ke.firebaseapp.com",
+projectId:"hustle-ndogo-ke",
+storageBucket:"hustle-ndogo-ke.firebasestorage.app",
+messagingSenderId:"232063329171",
+appId:"1:232063329171:web:97b35d6820f505d0d5be66",
+measurementId:"G-SCVT4S5BCV"
 };
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
+const app=initializeApp(firebaseConfig);
+const auth=getAuth(app);
+const db=getFirestore(app);
 
-window.showPage = function(page) {
-  const target = document.getElementById(page);
-  if (!target) return;
-  document.querySelectorAll('.page').forEach(section => section.classList.remove('active'));
-  target.classList.add('active');
-  document.querySelectorAll('.nav-btn').forEach(button => {
-    button.classList.toggle('active', button.dataset.page === page);
-  });
-  window.scrollTo({top:0,behavior:'smooth'});
+window.showPage=function(page){
+const target=document.getElementById(page);
+if(!target)return;
+document.querySelectorAll(".page").forEach(section=>section.classList.remove("active"));
+target.classList.add("active");
+document.querySelectorAll(".nav-btn").forEach(button=>button.classList.toggle("active",button.dataset.page===page));
+window.scrollTo({top:0,behavior:"smooth"});
 };
 
-document.querySelectorAll('.nav-btn').forEach(button => {
-  button.addEventListener('click', () => window.showPage(button.dataset.page));
-});
+document.querySelectorAll(".nav-btn").forEach(button=>button.addEventListener("click",()=>window.showPage(button.dataset.page)));
 
-let balanceHidden = false;
-window.toggleBalance = function() {
-  balanceHidden = !balanceHidden;
-  document.getElementById('balance').textContent = balanceHidden ? 'KSh ••••••' : 'KSh 0.00';
-  document.getElementById('hideBalance').textContent = balanceHidden ? 'Show' : 'Hide';
+let balanceHidden=false;
+window.toggleBalance=function(){
+balanceHidden=!balanceHidden;
+document.getElementById("balance").textContent=balanceHidden?"KSh ••••••":"KSh 0.00";
+document.getElementById("hideBalance").textContent=balanceHidden?"Show":"Hide";
 };
 
-// Theme preference
-const themeSelect = document.getElementById('themeSelect');
-function applyTheme(theme) {
-  let selected = theme;
-  if (theme === 'system') {
-    selected = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-  }
-  document.body.classList.toggle('light', selected === 'light');
+const themeSelect=document.getElementById("themeSelect");
+function applyTheme(theme){
+let selected=theme;
+if(theme==="system")selected=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";
+document.body.classList.toggle("light",selected==="light");
 }
-themeSelect.addEventListener('change', () => {
-  localStorage.setItem('hustle-theme', themeSelect.value);
-  applyTheme(themeSelect.value);
+themeSelect.addEventListener("change",()=>{
+localStorage.setItem("hustle-theme",themeSelect.value);
+applyTheme(themeSelect.value);
 });
-const savedTheme = localStorage.getItem('hustle-theme') || 'system';
-themeSelect.value = savedTheme;
+const savedTheme=localStorage.getItem("hustle-theme")||"system";
+themeSelect.value=savedTheme;
 applyTheme(savedTheme);
-window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', () => {
-  if (themeSelect.value === 'system') applyTheme('system');
+window.matchMedia("(prefers-color-scheme: light)").addEventListener("change",()=>{
+if(themeSelect.value==="system")applyTheme("system");
 });
 
-function showStatus(id, message, type='info') {
-  const box = document.getElementById(id);
-  box.textContent = message;
-  box.className = `status show ${type}`;
-}
-function friendlyError(error) {
-  const messages = {
-    'auth/email-already-in-use':'That email address already has an account. Try signing in.',
-    'auth/invalid-email':'Please enter a valid email address.',
-    'auth/weak-password':'Choose a stronger password with at least 6 characters.',
-    'auth/user-not-found':'No account was found with those details.',
-    'auth/wrong-password':'The password is incorrect.',
-    'auth/invalid-credential':'The email/phone or password is incorrect.',
-    'auth/too-many-requests':'Too many attempts. Please wait and try again later.',
-    'auth/operation-not-allowed':'This sign-in method is not enabled in Firebase Authentication.',
-    'auth/invalid-phone-number':'Enter your phone number in international format, e.g. +2547XXXXXXXX.',
-    'auth/quota-exceeded':'Firebase SMS quota has been reached. Try again later or use email sign-in.',
-    'auth/captcha-check-failed':'reCAPTCHA could not be verified. Refresh the page and try again.',
-    'auth/unauthorized-domain':'This website domain is not authorised in Firebase Authentication settings.',
-    'auth/network-request-failed':'Network problem. Check your internet connection and try again.'
-  };
-  return messages[error.code] || `${error.message || 'Something went wrong.'} (${error.code || 'unknown error'})`;
+function showStatus(id,message,type="info"){
+const box=document.getElementById(id);
+box.textContent=message;
+box.className="status show "+type;
 }
 
-async function saveUserProfile(user, extra={}) {
-  const profile = {
-    uid: user.uid,
-    displayName: user.displayName || extra.displayName || '',
-    email: user.email || null,
-    phoneNumber: user.phoneNumber || null,
-    updatedAt: serverTimestamp(),
-    ...extra
-  };
-  await setDoc(doc(db, 'users', user.uid), profile, {merge:true});
+function friendlyError(error){
+const messages={
+"auth/email-already-in-use":"That email address already has an account. Try signing in.",
+"auth/invalid-email":"Please enter a valid email address.",
+"auth/weak-password":"Choose a stronger password with at least 6 characters.",
+"auth/user-not-found":"No account was found with those details.",
+"auth/wrong-password":"The password is incorrect.",
+"auth/invalid-credential":"The email or password is incorrect.",
+"auth/too-many-requests":"Too many attempts. Please wait and try again later.",
+"auth/operation-not-allowed":"This sign-in method is not enabled in Firebase Authentication.",
+"auth/invalid-phone-number":"Enter a valid Kenyan phone number.",
+"auth/quota-exceeded":"Firebase SMS quota has been reached. Try again later or use email sign-in.",
+"auth/captcha-check-failed":"reCAPTCHA could not be verified. Refresh the page and try again.",
+"auth/unauthorized-domain":"This website domain is not authorised in Firebase Authentication settings.",
+"auth/network-request-failed":"Network problem. Check your internet connection and try again.",
+"auth/invalid-verification-code":"The SMS code is incorrect. Check it and try again.",
+"auth/code-expired":"That SMS code has expired. Request a new one."
+};
+return messages[error.code]||((error.message||"Something went wrong.")+" ("+(error.code||"unknown error")+")");
 }
 
-document.getElementById('registerEmailBtn').addEventListener('click', async () => {
-  const name = document.getElementById('fullName').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const password = document.getElementById('password').value;
-  if (!name) return showStatus('emailStatus', 'Please enter your name before creating an account.', 'error');
-  if (!email || !password) return showStatus('emailStatus', 'Enter your email address and password.', 'error');
-  if (password.length < 6) return showStatus('emailStatus', 'Your password must contain at least 6 characters.', 'error');
-  try {
-    const credential = await createUserWithEmailAndPassword(auth, email, password);
-    await updateProfile(credential.user, {displayName:name});
-    try {
-      await saveUserProfile(credential.user, {displayName:name, createdAt:serverTimestamp()});
-    } catch (profileError) {
-      console.warn('Profile document was not saved:', profileError);
-      showStatus('emailStatus', 'Your login account was created, but the profile database is not ready yet. Complete the Firestore setup steps before using stored profiles.', 'info');
-    }
-    showStatus('emailStatus', 'Your account has been created successfully.', 'success');
-  } catch (error) {
-    showStatus('emailStatus', friendlyError(error), 'error');
-  }
-});
-
-document.getElementById('loginEmailBtn').addEventListener('click', async () => {
-  const email = document.getElementById('email').value.trim();
-  const password = document.getElementById('password').value;
-  if (!email || !password) return showStatus('emailStatus', 'Enter your email address and password.', 'error');
-  try {
-    await signInWithEmailAndPassword(auth, email, password);
-    showStatus('emailStatus', 'You are signed in.', 'success');
-  } catch (error) {
-    showStatus('emailStatus', friendlyError(error), 'error');
-  }
-});
-
-document.getElementById('resetPasswordBtn').addEventListener('click', async () => {
-  const email = document.getElementById('email').value.trim();
-  if (!email) return showStatus('emailStatus', 'Enter your email address first, then tap Forgot password.', 'error');
-  try {
-    await sendPasswordResetEmail(auth, email);
-    showStatus('emailStatus', 'If an account exists for that email, Firebase has sent a password-reset email. Check your inbox and spam folder.', 'success');
-  } catch (error) {
-    showStatus('emailStatus', friendlyError(error), 'error');
-  }
-});
-
-// Phone authentication: reCAPTCHA is created when the user requests an SMS.
-let recaptchaVerifier = null;
-let confirmationResult = null;
-async function getRecaptchaVerifier() {
-  if (recaptchaVerifier) {
-    try { await recaptchaVerifier.clear(); } catch (_) {}
-    recaptchaVerifier = null;
-  }
-  recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {size:'normal'});
-  await recaptchaVerifier.render();
-  return recaptchaVerifier;
+async function saveUserProfile(user,displayName=""){
+const ref=doc(db,"users",user.uid);
+const existing=await getDoc(ref);
+const previous=existing.exists()?existing.data():{};
+const name=user.displayName||displayName||previous.displayName||"Hustle Ndogo Member";
+await setDoc(ref,{
+uid:user.uid,
+displayName:name,
+email:user.email||null,
+phoneNumber:user.phoneNumber||null,
+createdAt:previous.createdAt||serverTimestamp(),
+updatedAt:serverTimestamp()
+},{merge:true});
 }
 
-document.getElementById('sendCodeBtn').addEventListener('click', async () => {
-  const phone = document.getElementById('phoneNumber').value.trim();
-  if (!/^\+[1-9]\d{7,14}$/.test(phone)) {
-    return showStatus('phoneStatus', 'Use international format, for example +2547XXXXXXXX. Include the +254 country code.', 'error');
-  }
-  const button = document.getElementById('sendCodeBtn');
-  button.disabled = true;
-  button.textContent = 'Sending...';
-  try {
-    const verifier = await getRecaptchaVerifier();
-    confirmationResult = await signInWithPhoneNumber(auth, phone, verifier);
-    document.getElementById('codeArea').classList.remove('hidden');
-    showStatus('phoneStatus', 'Verification code sent. Enter the SMS code above.', 'success');
-  } catch (error) {
-    showStatus('phoneStatus', friendlyError(error), 'error');
-    if (recaptchaVerifier) {
-      try { await recaptchaVerifier.clear(); } catch (_) {}
-      recaptchaVerifier = null;
-    }
-  } finally {
-    button.disabled = false;
-    button.textContent = 'Send verification code';
-  }
+document.getElementById("registerEmailBtn").addEventListener("click",async()=>{
+const name=document.getElementById("fullName").value.trim();
+const email=document.getElementById("email").value.trim();
+const password=document.getElementById("password").value;
+if(!name)return showStatus("emailStatus","Please enter your name before creating an account.","error");
+if(!email||!password)return showStatus("emailStatus","Enter your email address and password.","error");
+if(password.length<6)return showStatus("emailStatus","Your password must contain at least 6 characters.","error");
+const button=document.getElementById("registerEmailBtn");
+button.disabled=true;
+try{
+const credential=await createUserWithEmailAndPassword(auth,email,password);
+await updateProfile(credential.user,{displayName:name});
+try{
+await saveUserProfile(credential.user,name);
+showStatus("emailStatus","Your account has been created successfully.","success");
+}catch(profileError){
+console.error(profileError);
+showStatus("emailStatus","Your login account was created, but Firestore could not save the profile. Check your Firestore database and rules.","error");
+}
+}catch(error){
+showStatus("emailStatus",friendlyError(error),"error");
+}finally{
+button.disabled=false;
+}
 });
 
-document.getElementById('verifyCodeBtn').addEventListener('click', async () => {
-  const code = document.getElementById('smsCode').value.trim();
-  if (!confirmationResult) return showStatus('phoneStatus', 'Request a verification code first.', 'error');
-  if (!code) return showStatus('phoneStatus', 'Enter the verification code sent to your phone.', 'error');
-  try {
-    const credential = await confirmationResult.confirm(code);
-    try {
-      await saveUserProfile(credential.user);
-    } catch (profileError) {
-      console.warn('Profile document was not saved:', profileError);
-      showStatus('phoneStatus', 'Your phone number is verified and you are signed in, but the profile database is not ready yet. Complete the Firestore setup steps.', 'info');
-    }
-    showStatus('phoneStatus', 'Phone number verified. You are signed in.', 'success');
-    document.getElementById('codeArea').classList.add('hidden');
-  } catch (error) {
-    showStatus('phoneStatus', friendlyError(error), 'error');
-  }
+document.getElementById("loginEmailBtn").addEventListener("click",async()=>{
+const email=document.getElementById("email").value.trim();
+const password=document.getElementById("password").value;
+if(!email||!password)return showStatus("emailStatus","Enter your email address and password.","error");
+const button=document.getElementById("loginEmailBtn");
+button.disabled=true;
+try{
+const credential=await signInWithEmailAndPassword(auth,email,password);
+try{await saveUserProfile(credential.user);}
+catch(error){console.error(error);showStatus("emailStatus","You are signed in, but your profile could not be synced to Firestore. Check your database rules.","error");}
+}catch(error){
+showStatus("emailStatus",friendlyError(error),"error");
+}finally{
+button.disabled=false;
+}
 });
 
-document.getElementById('signOutBtn').addEventListener('click', async () => {
-  try {
-    await signOut(auth);
-    showPage('home');
-  } catch (error) {
-    showStatus('accountStatus', friendlyError(error), 'error');
-  }
+document.getElementById("resetPasswordBtn").addEventListener("click",async()=>{
+const email=document.getElementById("email").value.trim();
+if(!email)return showStatus("emailStatus","Enter your email address first, then tap Forgot password.","error");
+try{
+await sendPasswordResetEmail(auth,email);
+showStatus("emailStatus","Password reset email sent if an account exists for that address. Check your inbox and spam folder.","success");
+}catch(error){
+showStatus("emailStatus",friendlyError(error),"error");
+}
 });
 
-// Keep the account screen in sync with Firebase Authentication.
-onAuthStateChanged(auth, async (user) => {
-  const signedOutArea = document.getElementById('signedOutArea');
-  const signedInArea = document.getElementById('signedInArea');
-  const joinButton = document.getElementById('joinButton');
-  if (user) {
-    signedOutArea.classList.add('hidden');
-    signedInArea.classList.remove('hidden');
-    document.getElementById('profileName').textContent = user.displayName || 'Welcome to Hustle Ndogo';
-    document.getElementById('profileContact').textContent = user.email || user.phoneNumber || 'Signed-in account';
-    joinButton.textContent = 'My Account';
-    try {
-      await saveUserProfile(user);
-    } catch (error) {
-      console.warn('Could not sync profile to Firestore:', error);
-      showStatus('accountStatus', 'You are signed in. Profile storage will work after Firestore is enabled and secured.', 'info');
-    }
-  } else {
-    signedInArea.classList.add('hidden');
-    signedOutArea.classList.remove('hidden');
-    joinButton.textContent = 'Join Us';
-  }
+function normalizeKenyanPhone(value){
+let phone=value.replace(/[\s()-]/g,"");
+if(phone.startsWith("0"))phone="+254"+phone.slice(1);
+else if(phone.startsWith("254"))phone="+"+phone;
+if(!/^\+254[17]\d{8}$/.test(phone))throw new Error("Enter a valid Kenyan number, e.g. +254712345678.");
+return phone;
+}
+
+let recaptchaVerifier=null;
+let confirmationResult=null;
+
+async function createRecaptcha(){
+if(recaptchaVerifier){
+try{recaptchaVerifier.clear();}catch(error){}
+recaptchaVerifier=null;
+}
+recaptchaVerifier=new RecaptchaVerifier(auth,"recaptcha-container",{size:"normal"});
+await recaptchaVerifier.render();
+return recaptchaVerifier;
+}
+
+document.getElementById("sendCodeBtn").addEventListener("click",async()=>{
+let phone;
+try{phone=normalizeKenyanPhone(document.getElementById("phoneNumber").value.trim());}
+catch(error){return showStatus("phoneStatus",error.message,"error");}
+const button=document.getElementById("sendCodeBtn");
+button.disabled=true;
+button.textContent="Sending...";
+try{
+const verifier=await createRecaptcha();
+confirmationResult=await signInWithPhoneNumber(auth,phone,verifier);
+document.getElementById("codeArea").classList.remove("hidden");
+showStatus("phoneStatus","Verification code sent. Check your SMS and enter the code below.","success");
+}catch(error){
+showStatus("phoneStatus",friendlyError(error),"error");
+if(recaptchaVerifier){
+try{recaptchaVerifier.clear();}catch(clearError){}
+recaptchaVerifier=null;
+}
+}finally{
+button.disabled=false;
+button.textContent="Send verification code";
+}
+});
+
+document.getElementById("verifyCodeBtn").addEventListener("click",async()=>{
+const code=document.getElementById("smsCode").value.trim();
+const name=document.getElementById("phoneName").value.trim();
+if(!confirmationResult)return showStatus("phoneStatus","Request a verification code first.","error");
+if(!code)return showStatus("phoneStatus","Enter the verification code sent to your phone.","error");
+try{
+const credential=await confirmationResult.confirm(code);
+if(name&&!credential.user.displayName)await updateProfile(credential.user,{displayName:name});
+try{
+await saveUserProfile(credential.user,name);
+showStatus("phoneStatus","Your phone number has been verified and your account is ready.","success");
+}catch(profileError){
+console.error(profileError);
+showStatus("phoneStatus","Your phone number is verified and you are signed in, but your Firestore profile could not be saved. Check your database rules.","error");
+}
+document.getElementById("codeArea").classList.add("hidden");
+}catch(error){
+showStatus("phoneStatus",friendlyError(error),"error");
+}
+});
+
+document.getElementById("signOutBtn").addEventListener("click",async()=>{
+try{
+await signOut(auth);
+showPage("home");
+}catch(error){
+showStatus("accountStatus",friendlyError(error),"error");
+}
+});
+
+async function startAuthentication(){
+await setPersistence(auth,browserLocalPersistence);
+onAuthStateChanged(auth,async user=>{
+const signedOutArea=document.getElementById("signedOutArea");
+const signedInArea=document.getElementById("signedInArea");
+const joinButton=document.getElementById("joinButton");
+if(user){
+signedOutArea.classList.add("hidden");
+signedInArea.classList.remove("hidden");
+document.getElementById("profileName").textContent=user.displayName||"Welcome to Hustle Ndogo";
+document.getElementById("profileContact").textContent=user.email||user.phoneNumber||"Signed-in account";
+joinButton.textContent="My Account";
+try{
+const ref=doc(db,"users",user.uid);
+const existing=await getDoc(ref);
+const previous=existing.exists()?existing.data():{};
+if(!existing.exists()||!previous.displayName){
+await saveUserProfile(user);
+}
+}catch(error){
+console.error("Firestore profile sync error:",error);
+showStatus("accountStatus","You are signed in, but your profile could not be synced to Firestore. Check your Firestore database and security rules.","error");
+}
+}else{
+signedInArea.classList.add("hidden");
+signedOutArea.classList.remove("hidden");
+joinButton.textContent="Join Us";
+}
+});
+}
+
+startAuthentication().catch(error=>{
+console.error("Firebase startup error:",error);
+showStatus("emailStatus","Firebase could not start: "+friendlyError(error),"error");
 });
 </script>
 </body>
