@@ -3,89 +3,100 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#160d29">
+<meta name="description" content="Hustle Ndogo KE — discover opportunities, connect, play and create.">
 <title>Hustle Ndogo KE</title>
 <style>
-:root{--purple:#8739db;--accent:#b77aff;--bg:#120b20;--surface:#211535;--surface2:#2a1b40;--text:#fff;--muted:#b9a9ca;--border:#3b2851}
-body.light{--bg:#f6f2fb;--surface:#fff;--surface2:#eee6f8;--text:#241432;--muted:#74647f;--border:#e0d3ec}
+:root{--purple:#8739db;--accent:#bd8aff;--bg:#120b20;--surface:#211535;--surface2:#2a1b40;--text:#fff;--muted:#b9a9ca;--border:#3b2851;--gold:#d9ad48;--silver:#c7d0dc}
+body.light{--bg:#f5f1fb;--surface:#fff;--surface2:#eee6f8;--text:#241432;--muted:#74647f;--border:#e0d3ec}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;transition:background .2s,color .2s}
-button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.6;cursor:not-allowed}a{color:inherit;text-decoration:none}
+body{font-family:Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;transition:.2s;min-height:100vh}
+button,input,select{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}
 header{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--border)}
-.topbar{min-height:75px;padding:12px 5%;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:1px;font-size:17px}
-.brand-icon{height:43px;width:43px;background:var(--purple);border-radius:12px;display:grid;place-items:center;font-size:28px;color:#fff;box-shadow:0 0 20px #8739db44}
+.topbar{min-height:72px;padding:11px 5%;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:1px;font-size:16px}
+.brand-icon{height:43px;width:43px;background:var(--purple);border-radius:13px;display:grid;place-items:center;font-size:28px;color:white;box-shadow:0 0 20px #8739db55}
 .brand small{display:block;font-size:9px;color:var(--accent);letter-spacing:3px}
-.top-actions{display:flex;align-items:center;gap:9px}
-.theme-select{background:var(--surface);color:var(--text);border:1px solid var(--border);padding:9px;border-radius:9px;max-width:112px}
-.account-btn,.primary{background:var(--purple);color:#fff;border:0;border-radius:9px;padding:11px 17px;font-weight:bold}
-nav{display:flex;overflow-x:auto;scrollbar-width:none;padding:0 4%;border-top:1px solid var(--border)}
+.top-actions{display:flex;align-items:center;gap:8px}
+.theme-select{background:var(--surface);color:var(--text);border:1px solid var(--border);padding:9px;border-radius:9px;max-width:100px}
+.primary,.account-btn{background:var(--purple);color:white;border:0;border-radius:9px;padding:11px 16px;font-weight:bold}
+nav{display:flex;overflow-x:auto;scrollbar-width:none;padding:0 3%;border-top:1px solid var(--border)}
 nav::-webkit-scrollbar{display:none}
-.nav-btn{flex-shrink:0;background:none;color:var(--muted);border:0;padding:15px 14px;font-size:13px;border-bottom:3px solid transparent}
+.nav-btn{flex-shrink:0;background:none;color:var(--muted);border:0;padding:14px 13px;font-size:13px;border-bottom:3px solid transparent}
 .nav-btn.active{color:var(--accent);border-bottom-color:var(--purple);font-weight:bold}
-main{max-width:1150px;margin:auto;padding:25px 5% 75px}
+main{max-width:1150px;margin:auto;padding:25px 5% 75px;position:relative}
+main:before{content:"H";position:fixed;pointer-events:none;z-index:-1;right:4%;top:30%;font-size: min(65vw,520px);font-weight:1000;color:var(--purple);opacity:.025;line-height:1}
 .page{display:none}.page.active{display:block;animation:appear .2s ease}
 @keyframes appear{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
-.hero{padding:65px 6%;border-radius:20px;background:radial-gradient(circle at 80% 20%,#9b55ed88,transparent 40%),linear-gradient(120deg,#25113d,#6431a5);color:#fff;margin-bottom:42px}
-.eyebrow{color:#dfc1ff;letter-spacing:3px;font-size:11px;font-weight:bold;margin-bottom:18px}
-.hero h1{font-size:clamp(36px,7vw,65px);line-height:1.12;margin-bottom:20px}
-.hero p{max-width:600px;color:#e2d5f0;margin-bottom:25px}
-.primary{display:inline-block;padding:13px 19px}
-.secondary{display:inline-block;border:1px solid #c6a1ed;border-radius:9px;padding:12px 18px;color:#fff;margin-left:8px;background:transparent}
-.section-title{font-size:25px;margin-bottom:6px}.section-sub{color:var(--muted);margin-bottom:23px;font-size:13px}
+.hero{padding:60px 6%;border-radius:20px;background:radial-gradient(circle at 80% 20%,#9b55ed88,transparent 40%),linear-gradient(120deg,#25113d,#6431a5);color:white;margin-bottom:38px}
+.eyebrow{color:#dfc1ff;letter-spacing:3px;font-size:11px;font-weight:bold;margin-bottom:16px}
+.hero h1{font-size:clamp(36px,7vw,65px);line-height:1.12;margin-bottom:18px}
+.hero p{max-width:620px;color:#e2d5f0;margin-bottom:23px}
+.secondary{display:inline-block;border:1px solid #c6a1ed;border-radius:9px;padding:12px 17px;color:white;margin:5px;background:transparent}
+.section-title{font-size:24px;margin-bottom:6px}.section-sub{color:var(--muted);margin-bottom:22px;font-size:13px}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-.card{background:var(--surface);border:1px solid var(--border);padding:22px;border-radius:14px;transition:.2s}
-.card:hover{border-color:var(--purple);transform:translateY(-3px)}
-.card-icon{font-size:28px;margin-bottom:12px}.card h3{font-size:16px;margin-bottom:7px}.card p{font-size:13px;color:var(--muted)}
-.tag{display:inline-block;background:var(--surface2);color:var(--accent);font-size:10px;padding:5px 10px;border-radius:20px;margin-bottom:12px}
-.block{margin-bottom:42px}
-.wallet{background:linear-gradient(135deg,#36175c,#7435bb);color:#fff;padding:28px;border-radius:18px;max-width:650px;box-shadow:0 10px 35px #0002}
+.card{background:var(--surface);border:1px solid var(--border);padding:21px;border-radius:14px;transition:.2s}
+.card h3{font-size:16px;margin-bottom:7px}.card p{font-size:13px;color:var(--muted)}
+.card-icon{font-size:28px;margin-bottom:11px}
+.card.clickable{cursor:pointer}.card.clickable:hover{border-color:var(--purple);transform:translateY(-2px)}
+.tag{display:inline-block;background:var(--surface2);color:var(--accent);font-size:10px;padding:5px 10px;border-radius:20px;margin-bottom:11px}
+.block{margin-bottom:40px}
+.page-heading{padding:25px 0 28px}.page-heading h1{font-size:32px;margin-bottom:7px}.page-heading p{color:var(--muted)}
+.community{background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:30px 20px;text-align:center;margin-top:32px}
+.community p{color:var(--muted);margin:10px 0 18px}
+.wallet{background:linear-gradient(135deg,#36175c,#7435bb);color:white;padding:27px;border-radius:18px;max-width:650px}
 .wallet-label{font-size:12px;color:#e2c9ff;letter-spacing:2px}
 .balance-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:10px 0 22px}
-.balance{font-size:35px;font-weight:800;letter-spacing:1px}
-.hide-btn{background:#ffffff20;color:#fff;border:1px solid #ffffff55;border-radius:8px;padding:9px 13px}
-.wallet-bottom{border-top:1px solid #ffffff44;padding-top:17px;display:flex;justify-content:space-between;font-size:13px;color:#eadcff}
-.wallet-actions{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
-.wallet-actions button{padding:10px 15px;border-radius:8px;border:1px solid #ffffff55;color:#fff;background:#ffffff18}
-.page-heading{padding:25px 0 30px}.page-heading h1{font-size:32px;margin-bottom:8px}.page-heading p{color:var(--muted)}
-.empty{border:1px dashed var(--border);border-radius:14px;padding:35px 20px;text-align:center;color:var(--muted)}.empty .card-icon{font-size:38px}
-.community{background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:35px 20px;text-align:center;margin-top:35px}
-.community h2{margin-bottom:10px}.community p{color:var(--muted);margin-bottom:20px}
-footer{border-top:1px solid var(--border);text-align:center;padding:30px 15px;color:var(--muted);font-size:12px}footer strong{color:var(--accent)}
-.auth-wrap{max-width:650px}.auth-card{background:var(--surface);border:1px solid var(--border);padding:22px;border-radius:14px;margin-bottom:16px}
-.auth-card h2{font-size:20px;margin-bottom:7px}.auth-card>p{color:var(--muted);font-size:13px;margin-bottom:17px}
+.balance{font-size:34px;font-weight:800}
+.hide-btn,.wallet-actions button{background:#ffffff20;color:white;border:1px solid #ffffff55;border-radius:8px;padding:9px 13px}
+.wallet-bottom{border-top:1px solid #ffffff44;padding-top:15px;display:flex;justify-content:space-between;font-size:13px}
+.wallet-actions{display:flex;gap:9px;margin-top:16px;flex-wrap:wrap}
+.empty{border:1px dashed var(--border);border-radius:14px;padding:30px 18px;text-align:center;color:var(--muted)}
+.auth-wrap{max-width:680px}.auth-card{background:var(--surface);border:1px solid var(--border);padding:22px;border-radius:14px;margin-bottom:16px}
+.auth-card h2{font-size:20px;margin-bottom:6px}.auth-card>p{color:var(--muted);font-size:13px;margin-bottom:16px}
 .field{margin:13px 0}.field label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
-.field input{width:100%;padding:12px;border:1px solid var(--border);border-radius:9px;background:var(--bg);color:var(--text);outline:none}
+.field input{width:100%;padding:13px;border:1px solid var(--border);border-radius:9px;background:var(--bg);color:var(--text);outline:none}
 .field input:focus{border-color:var(--accent)}
-.form-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
-.form-row button{border:0}
+.form-row{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-top:14px}
 .link-btn{background:none;border:0;color:var(--accent);padding:8px}
 .status{margin-top:13px;padding:11px 13px;border-radius:9px;font-size:13px;display:none;overflow-wrap:anywhere}
 .status.show{display:block}.status.error{background:#8b252533;color:#ffb5b5;border:1px solid #b84b4b66}.status.success{background:#1e8a4a22;color:#8de0ad;border:1px solid #3aa66a66}.status.info{background:#8739db22;color:var(--accent);border:1px solid #8739db66}
-.hidden{display:none!important}
-#recaptcha-container{margin:12px 0;overflow-x:auto}
-.account-summary{display:flex;align-items:center;gap:14px;margin-bottom:18px}
-.avatar{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--purple);font-size:22px;color:#fff}
-.small-note{font-size:12px;color:var(--muted);margin-top:12px}
-@media(max-width:700px){.topbar{padding:11px 4%}.brand{font-size:14px}.brand-icon{width:37px;height:37px}.theme-select{max-width:90px;font-size:11px}.account-btn{padding:10px;font-size:12px}nav{padding:0 2%}.nav-btn{padding:13px 12px;font-size:12px}main{padding:20px 5% 55px}.hero{padding:45px 23px}.grid{grid-template-columns:repeat(2,1fr)}.balance{font-size:27px}}
-@media(max-width:380px){.grid{grid-template-columns:1fr}.brand{font-size:12px}.theme-select{max-width:76px}.secondary{margin:10px 0 0}}
+.hidden{display:none!important}#recaptcha-container{margin:12px 0;overflow-x:auto}
+.account-summary{display:flex;align-items:center;gap:13px;margin-bottom:16px}
+.avatar{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--purple);font-size:22px;color:white}
+.small-note{font-size:12px;color:var(--muted);margin-top:10px}
+.chess-panel{background:var(--surface);border:1px solid var(--border);border-radius:17px;padding:17px;max-width:650px}
+.chess-top{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.chess-top select,.chess-top button,.chess-controls button{background:var(--surface2);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:9px}
+.board{width:min(100%,520px);aspect-ratio:1;display:grid;grid-template-columns:repeat(8,1fr);border:5px solid #8a6934;border-radius:5px;overflow:hidden;margin:auto;box-shadow:0 10px 28px #0005}
+.square{border:0;border-radius:0;display:grid;place-items:center;position:relative;font-size:clamp(24px,7vw,48px);line-height:1}
+.square.light-square{background:#e8dfca}.square.dark-square{background:#89795f}
+.square.selected{box-shadow:inset 0 0 0 4px #f5c54b}
+.square.legal:after{content:"";width:25%;height:25%;border-radius:50%;background:#302b2b66;position:absolute}
+.square.capture:after{content:"";position:absolute;inset:3px;border:4px solid #e5bc4c;border-radius:50%}
+.piece-white{color:#e8edf2;text-shadow:1px 2px 2px #27303a,0 0 2px #27303a}
+.piece-black{color:#d5a63c;text-shadow:1px 2px 2px #30200a,0 0 2px #30200a}
+.chess-status{padding:12px;background:var(--surface2);border-radius:9px;margin:13px 0;font-size:13px}
+.chess-controls{display:flex;gap:8px;flex-wrap:wrap}
+.chess-note{color:var(--muted);font-size:12px;margin-top:13px}
+footer{border-top:1px solid var(--border);text-align:center;padding:28px 15px;color:var(--muted);font-size:12px}
+footer strong{color:var(--accent)}
+.install-panel{padding:18px;background:var(--surface);border:1px solid var(--border);border-radius:13px;margin-top:20px}
+@media(max-width:700px){.topbar{padding:10px 4%}.brand{font-size:13px}.brand-icon{width:37px;height:37px}.theme-select{max-width:82px;font-size:11px}.account-btn{padding:10px;font-size:12px}nav{padding:0 2%}.nav-btn{padding:13px 11px;font-size:12px}main{padding:19px 5% 55px}.hero{padding:43px 22px}.grid{grid-template-columns:repeat(2,1fr)}.balance{font-size:27px}}
+@media(max-width:380px){.grid{grid-template-columns:1fr}.brand{font-size:11px}.theme-select{max-width:72px}}
 </style>
 </head>
 <body>
 <header>
 <div class="topbar">
-<a class="brand" href="#" onclick="showPage('home');return false">
-<div class="brand-icon">H</div><span>HUSTLE NDOGO<small>KENYA • KE</small></span>
-</a>
+<a class="brand" href="#" onclick="showPage('home');return false"><div class="brand-icon">H</div><span>HUSTLE NDOGO<small>KENYA • KE</small></span></a>
 <div class="top-actions">
-<select class="theme-select" id="themeSelect" aria-label="Choose theme">
-<option value="system">System</option><option value="dark">Dark</option><option value="light">Light</option>
-</select>
+<select class="theme-select" id="themeSelect" aria-label="Theme"><option value="system">System</option><option value="dark">Dark</option><option value="light">Light</option></select>
 <button class="account-btn" id="joinButton" onclick="showPage('account')">Join Us</button>
 </div>
 </div>
-<nav id="navigation">
+<nav>
 <button class="nav-btn active" data-page="home">Home</button>
 <button class="nav-btn" data-page="discover">Discover</button>
 <button class="nav-btn" data-page="games">Games</button>
@@ -96,401 +107,121 @@ footer{border-top:1px solid var(--border);text-align:center;padding:30px 15px;co
 <button class="nav-btn" data-page="account">Account</button>
 </nav>
 </header>
-
 <main>
 <section class="page active" id="home">
-<div class="hero">
-<div class="eyebrow">A LITTLE SPACE FOR BIG POSSIBILITIES</div>
-<h1>Connect. Play.<br>Create. Earn.</h1>
-<p>Meet people, enjoy games, discover fresh opportunities, share your writing and put your hustle in front of more people.</p>
-<button class="primary" onclick="showPage('discover')">Explore Hustle Ndogo →</button>
-<button class="secondary" onclick="showPage('account')">Join the Community</button>
-</div>
-<div class="block">
-<h2 class="section-title">Explore the platform</h2><p class="section-sub">Five spaces. One growing community.</p>
-<div class="grid">
-<div class="card" onclick="showPage('discover')"><div class="card-icon">🤝</div><h3>Discover People</h3><p>Find friends, companions and people who share your interests.</p></div>
-<div class="card" onclick="showPage('games')"><div class="card-icon">🎮</div><h3>Play Games</h3><p>Challenge friends and enjoy friendly competition.</p></div>
-<div class="card" onclick="showPage('entertainment')"><div class="card-icon">🎬</div><h3>Entertainment</h3><p>Explore digital entertainment and fresh ideas.</p></div>
-<div class="card" onclick="showPage('books')"><div class="card-icon">📚</div><h3>Books & Writing</h3><p>Read, write and share creative work.</p></div>
-<div class="card" onclick="showPage('marketplace')"><div class="card-icon">🛍️</div><h3>Marketplace</h3><p>Explore products, services and opportunities.</p></div>
-<div class="card" onclick="showPage('wallet')"><div class="card-icon">💜</div><h3>My Wallet</h3><p>Access your wallet and transaction history.</p></div>
-</div>
-</div>
-<div class="community"><h2>One Community. Many Possibilities.</h2><p>Hustle Ndogo is where ideas meet opportunities, creativity meets community and possibilities begin.</p><button class="primary" onclick="showPage('discover')">Explore Now</button></div>
+<div class="hero"><div class="eyebrow">A LITTLE SPACE FOR BIG POSSIBILITIES</div><h1 id="heroGreeting">Connect. Play.<br>Create. Earn.</h1><p>Meet people, enjoy games, discover fresh opportunities, share your writing and put your hustle in front of more people.</p><button class="primary" onclick="showPage('discover')">Explore Hustle Ndogo →</button><button class="secondary" onclick="showPage('account')">Join the Community</button></div>
+<div class="block"><h2 class="section-title">Explore the platform</h2><p class="section-sub">One growing community. Many possibilities.</p><div class="grid">
+<div class="card clickable" onclick="showPage('discover')"><div class="card-icon">🤝</div><h3>Discover People</h3><p>Find people who share your interests.</p></div>
+<div class="card clickable" onclick="showPage('games')"><div class="card-icon">♟️</div><h3>Play Games</h3><p>Challenge yourself and enjoy competition.</p></div>
+<div class="card clickable" onclick="showPage('entertainment')"><div class="card-icon">🎬</div><h3>Entertainment</h3><p>Explore digital entertainment and fresh ideas.</p></div>
+<div class="card clickable" onclick="showPage('books')"><div class="card-icon">📚</div><h3>Books & Writing</h3><p>Read, write and share creative work.</p></div>
+<div class="card clickable" onclick="showPage('marketplace')"><div class="card-icon">🛍️</div><h3>Marketplace</h3><p>Explore products, services and opportunities.</p></div>
+<div class="card clickable" onclick="showPage('wallet')"><div class="card-icon">💜</div><h3>My Wallet</h3><p>Access your wallet and activity.</p></div>
+</div></div>
+<div class="community"><h2>One Community. Many Possibilities.</h2><p>Ideas meet opportunities, creativity meets community and possibilities begin.</p><button class="primary" onclick="showPage('discover')">Explore Now</button></div>
+<div class="install-panel"><h2>Take Hustle Ndogo with you</h2><p class="section-sub">Add the platform to your Android home screen for quick access.</p><button class="primary" onclick="installApp()">Download Me!</button><p id="installMessage" class="small-note">You can install the website from your browser menu. Full app installation setup requires the supporting PWA files.</p></div>
 </section>
-
 <section class="page" id="discover">
 <div class="page-heading"><div class="eyebrow">FIND YOUR NEXT MOVE</div><h1>Discover</h1><p>Explore opportunities, connections and new possibilities.</p></div>
 <div class="grid">
 <div class="card"><div class="card-icon">💻</div><span class="tag">DIGITAL</span><h3>Online Opportunities</h3><p>Remote work, AI tasks and digital opportunities.</p></div>
-<div class="card"><div class="card-icon">🏪</div><span class="tag">BUSINESS</span><h3>Small Businesses</h3><p>Explore practical business ideas and ventures.</p></div>
-<div class="card"><div class="card-icon">🎓</div><span class="tag">STUDENTS</span><h3>Student Hustles</h3><p>Explore opportunities around student life.</p></div>
+<div class="card"><div class="card-icon">🏪</div><span class="tag">BUSINESS</span><h3>Small Businesses</h3><p>Practical business ideas and ventures.</p></div>
+<div class="card"><div class="card-icon">🎓</div><span class="tag">STUDENTS</span><h3>Student Hustles</h3><p>Opportunities around student life.</p></div>
 <div class="card"><div class="card-icon">🧠</div><span class="tag">SKILLS</span><h3>Learn & Grow</h3><p>Develop skills that open new doors.</p></div>
 <div class="card"><div class="card-icon">🤝</div><span class="tag">COMMUNITY</span><h3>Connections</h3><p>Meet people and build meaningful connections.</p></div>
 <div class="card"><div class="card-icon">💡</div><span class="tag">IDEAS</span><h3>Fresh Ideas</h3><p>Discover new ways to approach everyday challenges.</p></div>
 </div>
 </section>
-
 <section class="page" id="games">
 <div class="page-heading"><div class="eyebrow">CHALLENGE YOURSELF</div><h1>Games & Challenges</h1><p>Fun, competition and a little friendly pressure.</p></div>
 <div class="grid">
+<div class="card clickable" onclick="showPage('chess')"><div class="card-icon">♟️</div><h3>Checkmate! Chess</h3><p>Play chess against the computer on a gold-and-silver board.</p><span class="tag">PLAY NOW</span></div>
 <div class="card"><div class="card-icon">🧠</div><h3>Trivia</h3><p>Test your general knowledge.</p></div>
 <div class="card"><div class="card-icon">🔤</div><h3>Word Challenges</h3><p>Put your vocabulary to the test.</p></div>
 <div class="card"><div class="card-icon">🏆</div><h3>Competitions</h3><p>Take part in community challenges.</p></div>
 </div>
 </section>
-
-<section class="page" id="entertainment">
-<div class="page-heading"><div class="eyebrow">YOUR ENTERTAINMENT SPACE</div><h1>Entertainment</h1><p>Discover something interesting, inspiring or entertaining.</p></div>
-<div class="grid">
-<div class="card"><div class="card-icon">🎬</div><h3>Movies & Series</h3><p>Explore entertainment recommendations.</p></div>
-<div class="card"><div class="card-icon">🎵</div><h3>Music</h3><p>Discover music and musical culture.</p></div>
-<div class="card"><div class="card-icon">✨</div><h3>Trending</h3><p>Explore interesting topics and conversations.</p></div>
+<section class="page" id="chess">
+<div class="page-heading"><div class="eyebrow">HUSTLE NDOGO GAME ROOM</div><h1>Checkmate!</h1><p>For beginners and grandmasters. Your move.</p></div>
+<div class="chess-panel">
+<div class="chess-top"><strong>♛ Gold vs Silver</strong><select id="difficulty"><option value="1">Beginner</option><option value="2">Intermediate</option><option value="3">Advanced</option><option value="3">Expert</option><option value="3">Crazy</option></select></div>
+<div class="board" id="chessBoard" aria-label="Chess board"></div>
+<div class="chess-status" id="chessStatus">Your turn. You play silver (White).</div>
+<div class="chess-controls"><button onclick="newChessGame()">New Game</button><button onclick="undoChessMove()">Undo Move</button><button onclick="flipChessBoard()">Flip Board</button></div>
+<p class="chess-note">You play silver against a gold computer opponent. The game enforces legal chess moves, check, checkmate, castling, en passant and pawn promotion. Computer strength is a lightweight browser-based opponent, not a grandmaster engine.</p>
 </div>
 </section>
-
-<section class="page" id="books">
-<div class="page-heading"><div class="eyebrow">WORDS HAVE POWER</div><h1>Books & Writing</h1><p>A space for readers, thinkers and storytellers.</p></div>
-<div class="grid">
-<div class="card"><div class="card-icon">📖</div><h3>Reading Corner</h3><p>Explore books and reading recommendations.</p></div>
-<div class="card"><div class="card-icon">✍️</div><h3>Creative Writing</h3><p>Share poetry, stories and original writing.</p></div>
-<div class="card"><div class="card-icon">📝</div><h3>Articles & Ideas</h3><p>Explore thoughts, research and perspectives.</p></div>
-</div>
-</section>
-
-<section class="page" id="marketplace">
-<div class="page-heading"><div class="eyebrow">TRADE. CONNECT. GROW.</div><h1>Marketplace</h1><p>A place for products, services and business connections.</p></div>
-<div class="grid">
-<div class="card"><div class="card-icon">🛒</div><h3>Products</h3><p>Explore goods offered by the community.</p></div>
-<div class="card"><div class="card-icon">🧰</div><h3>Services</h3><p>Discover skills and services from other members.</p></div>
-<div class="card"><div class="card-icon">📢</div><h3>Promote Your Hustle</h3><p>Give your business an opportunity to be discovered.</p></div>
-</div>
-</section>
-
-<section class="page" id="wallet">
-<div class="page-heading"><div class="eyebrow">YOUR FINANCIAL SPACE</div><h1>My Wallet</h1><p>Manage your wallet and view your activity.</p></div>
-<div class="wallet">
-<div class="wallet-label">MY BALANCE</div>
-<div class="balance-row"><div class="balance" id="balance">KSh 0.00</div><button class="hide-btn" id="hideBalance" onclick="toggleBalance()">Hide</button></div>
-<div class="wallet-bottom"><span>Currency</span><strong>Kenyan Shilling (KES)</strong></div>
-<div class="wallet-actions"><button onclick="showPage('transactions')">Transaction History</button><button onclick="showPage('account')">My Account</button></div>
-</div>
-<div class="block" style="margin-top:35px"><h2 class="section-title">Recent Transactions</h2><p class="section-sub">Your wallet activity.</p><div class="empty"><div class="card-icon">💳</div><h3>No transactions yet</h3><p>Your transaction history will appear here.</p></div></div>
-</section>
-
-<section class="page" id="transactions">
-<div class="page-heading"><div class="eyebrow">WALLET ACTIVITY</div><h1>Transaction History</h1><p>Keep track of your wallet activity.</p></div>
-<div class="empty"><div class="card-icon">📄</div><h3>No transactions yet</h3><p>Your transactions will appear here.</p></div>
-<button class="primary" style="margin-top:20px" onclick="showPage('wallet')">Back to Wallet</button>
-</section>
-
+<section class="page" id="entertainment"><div class="page-heading"><div class="eyebrow">YOUR ENTERTAINMENT SPACE</div><h1>Entertainment</h1><p>Discover something interesting, inspiring or entertaining.</p></div><div class="grid"><div class="card"><div class="card-icon">🎬</div><h3>Movies & Series</h3><p>Explore entertainment recommendations.</p></div><div class="card"><div class="card-icon">🎵</div><h3>Music</h3><p>Discover music and musical culture.</p></div><div class="card"><div class="card-icon">✨</div><h3>Trending</h3><p>Explore interesting topics and conversations.</p></div></div></section>
+<section class="page" id="books"><div class="page-heading"><div class="eyebrow">WORDS HAVE POWER</div><h1>Books & Writing</h1><p>A space for readers, thinkers and storytellers.</p></div><div class="grid"><div class="card"><div class="card-icon">📖</div><h3>Reading Corner</h3><p>Explore books and reading recommendations.</p></div><div class="card"><div class="card-icon">✍️</div><h3>Creative Writing</h3><p>Share poetry, stories and original writing.</p></div><div class="card"><div class="card-icon">📝</div><h3>Articles & Ideas</h3><p>Explore thoughts, research and perspectives.</p></div></div></section>
+<section class="page" id="marketplace"><div class="page-heading"><div class="eyebrow">TRADE. CONNECT. GROW.</div><h1>Marketplace</h1><p>A place for products, services and business connections.</p></div><div class="grid"><div class="card"><div class="card-icon">🛒</div><h3>Products</h3><p>Explore goods offered by the community.</p></div><div class="card"><div class="card-icon">🧰</div><h3>Services</h3><p>Discover skills and services from other members.</p></div><div class="card"><div class="card-icon">📢</div><h3>Promote Your Hustle</h3><p>Give your business an opportunity to be discovered.</p></div></div></section>
+<section class="page" id="wallet"><div class="page-heading"><div class="eyebrow">YOUR FINANCIAL SPACE</div><h1>My Wallet</h1><p>Your Hustle Ndogo wallet.</p></div><div class="wallet"><div class="wallet-label">AVAILABLE BALANCE</div><div class="balance-row"><div class="balance" id="balance">KSh 0.00</div><button class="hide-btn" id="hideBalance" onclick="toggleBalance()">Hide</button></div><div class="wallet-bottom"><span>Currency</span><strong>Kenyan Shilling (KES)</strong></div><div class="wallet-actions"><button onclick="showPage('transactions')">Transaction History</button><button onclick="showPage('account')">My Account</button></div></div><div class="block" style="margin-top:30px"><h2 class="section-title">Recent Transactions</h2><div class="empty"><div class="card-icon">💳</div><h3>No transactions yet</h3><p>Your wallet activity will appear here.</p></div></div></section>
+<section class="page" id="transactions"><div class="page-heading"><div class="eyebrow">WALLET ACTIVITY</div><h1>Transaction History</h1></div><div class="empty"><div class="card-icon">📄</div><h3>No transactions yet</h3><p>Your transactions will appear here.</p></div><button class="primary" style="margin-top:18px" onclick="showPage('wallet')">Back to Wallet</button></section>
 <section class="page" id="account">
 <div class="page-heading"><div class="eyebrow">YOUR HUSTLE NDOGO IDENTITY</div><h1>My Account</h1><p>Create an account or sign in using your email address or mobile number.</p></div>
 <div class="auth-wrap">
 <div id="signedOutArea">
-<div class="auth-card">
-<h2>Email registration / login</h2><p>Use an email address and password to create your account or sign in.</p>
-<div class="field"><label for="fullName">Your name (for new accounts)</label><input id="fullName" type="text" autocomplete="name" placeholder="e.g. John Mwafrika"></div>
+<div class="auth-card"><h2>Email registration / login</h2><p>Use your name, email address and password to create your account.</p>
+<div class="field"><label for="fullName">Your name</label><input id="fullName" type="text" autocomplete="name" placeholder="e.g. John Mwafrika"></div>
 <div class="field"><label for="email">Email address</label><input id="email" type="email" autocomplete="email" placeholder="you@example.com"></div>
 <div class="field"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" placeholder="At least 6 characters"></div>
-<div class="form-row">
-<button class="primary" id="registerEmailBtn" type="button">Create account</button>
-<button class="primary" id="loginEmailBtn" type="button">Sign in</button>
-<button class="link-btn" id="resetPasswordBtn" type="button">Forgot password?</button>
+<div class="form-row"><button class="primary" id="registerEmailBtn">Create account</button><button class="primary" id="loginEmailBtn">Sign in</button><button class="link-btn" id="resetPasswordBtn">Forgot password?</button></div><div id="emailStatus" class="status" role="status"></div>
 </div>
-<div id="emailStatus" class="status" role="status" aria-live="polite"></div>
-</div>
-
-<div class="auth-card">
-<h2>Phone number registration / login</h2><p>Enter your Kenyan number. You can use 0712345678 or +254712345678.</p>
-<div class="field"><label for="phoneName">Your name (for new accounts)</label><input id="phoneName" type="text" autocomplete="name" placeholder="Your full name"></div>
+<div class="auth-card"><h2>Phone registration / login</h2><p>Kenyan number format: +254 followed by your number without the first zero.</p>
+<div class="field"><label for="phoneName">Your name (for a new phone account)</label><input id="phoneName" type="text" placeholder="e.g. John Mwafrika"></div>
 <div class="field"><label for="phoneNumber">Mobile number</label><input id="phoneNumber" type="tel" autocomplete="tel" placeholder="+2547XXXXXXXX"></div>
-<div id="recaptcha-container"></div>
-<div class="form-row"><button class="primary" id="sendCodeBtn" type="button">Send verification code</button></div>
-<div id="codeArea" class="hidden">
-<div class="field"><label for="smsCode">SMS verification code</label><input id="smsCode" type="text" inputmode="numeric" autocomplete="one-time-code" placeholder="Enter the code sent to your phone"></div>
-<button class="primary" id="verifyCodeBtn" type="button">Verify & sign in</button>
-</div>
-<div id="phoneStatus" class="status" role="status" aria-live="polite"></div>
-<p class="small-note">Phone sign-in uses Google's reCAPTCHA protection. Firebase SMS quotas and billing limits may apply.</p>
+<div id="recaptcha-container"></div><div class="form-row"><button class="primary" id="sendCodeBtn">Send verification code</button></div>
+<div id="codeArea" class="hidden"><div class="field"><label for="smsCode">SMS verification code</label><input id="smsCode" type="text" inputmode="numeric" autocomplete="one-time-code" placeholder="Enter SMS code"></div><button class="primary" id="verifyCodeBtn">Verify & sign in</button></div>
+<div id="phoneStatus" class="status" role="status"></div><p class="small-note">SMS delivery depends on Firebase settings, authorised domains, reCAPTCHA and available SMS quota.</p>
 </div>
 </div>
-
-<div id="signedInArea" class="hidden">
-<div class="auth-card">
-<div class="account-summary"><div class="avatar">👤</div><div><h2 id="profileName">Welcome</h2><p id="profileContact" class="small-note"></p></div></div>
-<p>You are signed in to Hustle Ndogo KE.</p>
-<div id="accountStatus" class="status show info">Your account is active.</div>
-<div class="form-row"><button class="primary" id="signOutBtn" type="button">Sign out</button></div>
-</div>
-</div>
+<div id="signedInArea" class="hidden"><div class="auth-card"><div class="account-summary"><div class="avatar">👤</div><div><h2 id="profileName">Welcome!</h2><p id="profileContact" class="small-note"></p></div></div><p id="welcomeMessage">Welcome to Hustle Ndogo KE.</p><div id="accountStatus" class="status show info">Your account is active.</div><div class="form-row"><button class="primary" id="signOutBtn">Sign out</button></div></div></div>
 </div>
 </section>
 </main>
-
 <footer><strong>HUSTLE NDOGO KE</strong><p>Small Hustles. Big Possibilities.</p><p>© 2026 Hustle Ndogo KE. All rights reserved.</p></footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+<script>
+function showPage(page){const target=document.getElementById(page);if(!target)return;document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));target.classList.add('active');document.querySelectorAll('.nav-btn').forEach(x=>x.classList.toggle('active',x.dataset.page===page));window.scrollTo({top:0,behavior:'smooth'});if(page==='chess')drawChessBoard()}
+document.querySelectorAll('.nav-btn').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
+let balanceHidden=false;function toggleBalance(){balanceHidden=!balanceHidden;document.getElementById('balance').textContent=balanceHidden?'KSh ••••••':'KSh 0.00';document.getElementById('hideBalance').textContent=balanceHidden?'Show':'Hide'}
+const themeSelect=document.getElementById('themeSelect');function applyTheme(t){let v=t==='system'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t;document.body.classList.toggle('light',v==='light')}themeSelect.addEventListener('change',()=>{localStorage.setItem('hustle-theme',themeSelect.value);applyTheme(themeSelect.value)});themeSelect.value=localStorage.getItem('hustle-theme')||'system';applyTheme(themeSelect.value);matchMedia('(prefers-color-scheme: light)').addEventListener('change',()=>{if(themeSelect.value==='system')applyTheme('system')});
+function installApp(){document.getElementById('installMessage').textContent='On Android, open your browser menu (⋮), choose Install app or Add to Home screen if offered, then confirm. A full branded installable version will require the manifest, service worker and app icons.'}
+let chessGame=null,chessSelected=null,chessLegal=[],chessFlipped=false,chessThinking=false;
+const symbols={wk:'♔',wq:'♕',wr:'♖',wb:'♗',wn:'♘',wp:'♙',bk:'♚',bq:'♛',br:'♜',bb:'♝',bn:'♞',bp:'♟'};
+function newChessGame(){chessGame=new Chess();chessSelected=null;chessLegal=[];chessThinking=false;setChessStatus('Your turn. You play silver (White).');drawChessBoard()}
+function setChessStatus(t){document.getElementById('chessStatus').textContent=t}
+function drawChessBoard(){if(!chessGame)return;const board=document.getElementById('chessBoard');board.innerHTML='';let rows=chessFlipped?[7,6,5,4,3,2,1,0]:[0,1,2,3,4,5,6,7];let cols=chessFlipped?[7,6,5,4,3,2,1,0]:[0,1,2,3,4,5,6,7];let data=chessGame.board();rows.forEach(r=>cols.forEach(c=>{let sq=String.fromCharCode(97+c)+(8-r);let p=data[r][c];let el=document.createElement('button');el.className='square '+((r+c)%2===0?'light-square':'dark-square');if(chessSelected===sq)el.classList.add('selected');let legal=chessLegal.find(m=>m.to===sq);if(legal)el.classList.add(legal.captured?'capture':'legal');if(p){el.textContent=symbols[p.color+p.type];el.classList.add(p.color==='w'?'piece-white':'piece-black')}el.setAttribute('aria-label',sq);el.addEventListener('click',()=>tapSquare(sq));board.appendChild(el)}))}
+function tapSquare(sq){if(!chessGame||chessThinking||chessGame.game_over()||chessGame.turn()!=='w')return;let piece=chessGame.get(sq);if(chessSelected){let move=chessLegal.find(m=>m.to===sq);if(move){let promotion=move.flags.includes('p')?'q':undefined;let done=chessGame.move({from:chessSelected,to:sq,promotion});chessSelected=null;chessLegal=[];drawChessBoard();if(done){if(checkChessEnd())return;setChessStatus('Computer is thinking…');chessThinking=true;setTimeout(computerMove,180)}return}}if(piece&&piece.color==='w'){chessSelected=sq;chessLegal=chessGame.moves({square:sq,verbose:true});drawChessBoard()}else{chessSelected=null;chessLegal=[];drawChessBoard()}}
+function evaluateBoard(){const vals={p:100,n:320,b:330,r:500,q:900,k:20000};let score=0;chessGame.board().forEach(row=>row.forEach(p=>{if(p)score+=(p.color==='b'?1:-1)*vals[p.type]}));return score}
+function minimax(depth,alpha,beta,maximizing){if(depth===0||chessGame.game_over())return evaluateBoard();let moves=chessGame.moves({verbose:true});if(maximizing){let best=-Infinity;for(let m of moves){chessGame.move(m);let val=minimax(depth-1,alpha,beta,false);chessGame.undo();best=Math.max(best,val);alpha=Math.max(alpha,val);if(beta<=alpha)break}return best}else{let best=Infinity;for(let m of moves){chessGame.move(m);let val=minimax(depth-1,alpha,beta,true);chessGame.undo();best=Math.min(best,val);beta=Math.min(beta,val);if(beta<=alpha)break}return best}}
+function computerMove(){if(chessGame.game_over()){chessThinking=false;checkChessEnd();return}let depth=Number(document.getElementById('difficulty').value)||1;let moves=chessGame.moves({verbose:true});let best=-Infinity,choices=[];for(let m of moves){chessGame.move(m);let score=minimax(depth-1,-Infinity,Infinity,false);chessGame.undo();if(score>best){best=score;choices=[m]}else if(score===best)choices.push(m)}let chosen=choices[Math.floor(Math.random()*choices.length)];if(chosen)chessGame.move({from:chosen.from,to:chosen.to,promotion:'q'});chessThinking=false;drawChessBoard();checkChessEnd();if(!chessGame.game_over())setChessStatus(chessGame.in_check()?'You are in check. Your move.':'Your turn. Silver to move.')}
+function checkChessEnd(){if(chessGame.in_checkmate()){setChessStatus(chessGame.turn()==='w'?'Checkmate! Gold wins. Try again.':'Checkmate! Silver wins. Congratulations!');return true}if(chessGame.in_stalemate()){setChessStatus('Draw by stalemate. Well played.');return true}if(chessGame.in_draw()){setChessStatus('The game is a draw.');return true}if(chessGame.in_check()){setChessStatus(chessGame.turn()==='w'?'Check! Your king is under attack.':'Computer is in check.');return false}return false}
+function undoChessMove(){if(!chessGame||chessThinking)return;chessGame.undo();if(chessGame.turn()==='b')chessGame.undo();chessSelected=null;chessLegal=[];drawChessBoard();setChessStatus('Move undone. Your turn.')}
+function flipChessBoard(){chessFlipped=!chessFlipped;drawChessBoard()}
+newChessGame();
+</script>
+
 <script type="module">
-import {initializeApp} from "https://www.gstatic.com/firebasejs/13.3.0/firebase-app.js";
-import {getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut,onAuthStateChanged,sendPasswordResetEmail,updateProfile,setPersistence,browserLocalPersistence,RecaptchaVerifier,signInWithPhoneNumber} from "https://www.gstatic.com/firebasejs/13.3.0/firebase-auth.js";
-import {getFirestore,doc,getDoc,setDoc,serverTimestamp} from "https://www.gstatic.com/firebasejs/13.3.0/firebase-firestore.js";
-
-const firebaseConfig={
-apiKey:"AIzaSyBPnr2WGGyNLVnUHB9zTH-IAzeLTC8jJGg",
-authDomain:"hustle-ndogo-ke.firebaseapp.com",
-projectId:"hustle-ndogo-ke",
-storageBucket:"hustle-ndogo-ke.firebasestorage.app",
-messagingSenderId:"232063329171",
-appId:"1:232063329171:web:97b35d6820f505d0d5be66",
-measurementId:"G-SCVT4S5BCV"
-};
-
-const app=initializeApp(firebaseConfig);
-const auth=getAuth(app);
-const db=getFirestore(app);
-
-window.showPage=function(page){
-const target=document.getElementById(page);
-if(!target)return;
-document.querySelectorAll(".page").forEach(section=>section.classList.remove("active"));
-target.classList.add("active");
-document.querySelectorAll(".nav-btn").forEach(button=>button.classList.toggle("active",button.dataset.page===page));
-window.scrollTo({top:0,behavior:"smooth"});
-};
-
-document.querySelectorAll(".nav-btn").forEach(button=>button.addEventListener("click",()=>window.showPage(button.dataset.page)));
-
-let balanceHidden=false;
-window.toggleBalance=function(){
-balanceHidden=!balanceHidden;
-document.getElementById("balance").textContent=balanceHidden?"KSh ••••••":"KSh 0.00";
-document.getElementById("hideBalance").textContent=balanceHidden?"Show":"Hide";
-};
-
-const themeSelect=document.getElementById("themeSelect");
-function applyTheme(theme){
-let selected=theme;
-if(theme==="system")selected=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";
-document.body.classList.toggle("light",selected==="light");
-}
-themeSelect.addEventListener("change",()=>{
-localStorage.setItem("hustle-theme",themeSelect.value);
-applyTheme(themeSelect.value);
-});
-const savedTheme=localStorage.getItem("hustle-theme")||"system";
-themeSelect.value=savedTheme;
-applyTheme(savedTheme);
-window.matchMedia("(prefers-color-scheme: light)").addEventListener("change",()=>{
-if(themeSelect.value==="system")applyTheme("system");
-});
-
-function showStatus(id,message,type="info"){
-const box=document.getElementById(id);
-box.textContent=message;
-box.className="status show "+type;
-}
-
-function friendlyError(error){
-const messages={
-"auth/email-already-in-use":"That email address already has an account. Try signing in.",
-"auth/invalid-email":"Please enter a valid email address.",
-"auth/weak-password":"Choose a stronger password with at least 6 characters.",
-"auth/user-not-found":"No account was found with those details.",
-"auth/wrong-password":"The password is incorrect.",
-"auth/invalid-credential":"The email or password is incorrect.",
-"auth/too-many-requests":"Too many attempts. Please wait and try again later.",
-"auth/operation-not-allowed":"This sign-in method is not enabled in Firebase Authentication.",
-"auth/invalid-phone-number":"Enter a valid Kenyan phone number.",
-"auth/quota-exceeded":"Firebase SMS quota has been reached. Try again later or use email sign-in.",
-"auth/captcha-check-failed":"reCAPTCHA could not be verified. Refresh the page and try again.",
-"auth/unauthorized-domain":"This website domain is not authorised in Firebase Authentication settings.",
-"auth/network-request-failed":"Network problem. Check your internet connection and try again.",
-"auth/invalid-verification-code":"The SMS code is incorrect. Check it and try again.",
-"auth/code-expired":"That SMS code has expired. Request a new one."
-};
-return messages[error.code]||((error.message||"Something went wrong.")+" ("+(error.code||"unknown error")+")");
-}
-
-async function saveUserProfile(user,displayName=""){
-const ref=doc(db,"users",user.uid);
-const existing=await getDoc(ref);
-const previous=existing.exists()?existing.data():{};
-const name=user.displayName||displayName||previous.displayName||"Hustle Ndogo Member";
-await setDoc(ref,{
-uid:user.uid,
-displayName:name,
-email:user.email||null,
-phoneNumber:user.phoneNumber||null,
-createdAt:previous.createdAt||serverTimestamp(),
-updatedAt:serverTimestamp()
-},{merge:true});
-}
-
-document.getElementById("registerEmailBtn").addEventListener("click",async()=>{
-const name=document.getElementById("fullName").value.trim();
-const email=document.getElementById("email").value.trim();
-const password=document.getElementById("password").value;
-if(!name)return showStatus("emailStatus","Please enter your name before creating an account.","error");
-if(!email||!password)return showStatus("emailStatus","Enter your email address and password.","error");
-if(password.length<6)return showStatus("emailStatus","Your password must contain at least 6 characters.","error");
-const button=document.getElementById("registerEmailBtn");
-button.disabled=true;
-try{
-const credential=await createUserWithEmailAndPassword(auth,email,password);
-await updateProfile(credential.user,{displayName:name});
-try{
-await saveUserProfile(credential.user,name);
-showStatus("emailStatus","Your account has been created successfully.","success");
-}catch(profileError){
-console.error(profileError);
-showStatus("emailStatus","Your login account was created, but Firestore could not save the profile. Check your Firestore database and rules.","error");
-}
-}catch(error){
-showStatus("emailStatus",friendlyError(error),"error");
-}finally{
-button.disabled=false;
-}
-});
-
-document.getElementById("loginEmailBtn").addEventListener("click",async()=>{
-const email=document.getElementById("email").value.trim();
-const password=document.getElementById("password").value;
-if(!email||!password)return showStatus("emailStatus","Enter your email address and password.","error");
-const button=document.getElementById("loginEmailBtn");
-button.disabled=true;
-try{
-const credential=await signInWithEmailAndPassword(auth,email,password);
-try{await saveUserProfile(credential.user);}
-catch(error){console.error(error);showStatus("emailStatus","You are signed in, but your profile could not be synced to Firestore. Check your database rules.","error");}
-}catch(error){
-showStatus("emailStatus",friendlyError(error),"error");
-}finally{
-button.disabled=false;
-}
-});
-
-document.getElementById("resetPasswordBtn").addEventListener("click",async()=>{
-const email=document.getElementById("email").value.trim();
-if(!email)return showStatus("emailStatus","Enter your email address first, then tap Forgot password.","error");
-try{
-await sendPasswordResetEmail(auth,email);
-showStatus("emailStatus","Password reset email sent if an account exists for that address. Check your inbox and spam folder.","success");
-}catch(error){
-showStatus("emailStatus",friendlyError(error),"error");
-}
-});
-
-function normalizeKenyanPhone(value){
-let phone=value.replace(/[\s()-]/g,"");
-if(phone.startsWith("0"))phone="+254"+phone.slice(1);
-else if(phone.startsWith("254"))phone="+"+phone;
-if(!/^\+254[17]\d{8}$/.test(phone))throw new Error("Enter a valid Kenyan number, e.g. +254712345678.");
-return phone;
-}
-
-let recaptchaVerifier=null;
-let confirmationResult=null;
-
-async function createRecaptcha(){
-if(recaptchaVerifier){
-try{recaptchaVerifier.clear();}catch(error){}
-recaptchaVerifier=null;
-}
-recaptchaVerifier=new RecaptchaVerifier(auth,"recaptcha-container",{size:"normal"});
-await recaptchaVerifier.render();
-return recaptchaVerifier;
-}
-
-document.getElementById("sendCodeBtn").addEventListener("click",async()=>{
-let phone;
-try{phone=normalizeKenyanPhone(document.getElementById("phoneNumber").value.trim());}
-catch(error){return showStatus("phoneStatus",error.message,"error");}
-const button=document.getElementById("sendCodeBtn");
-button.disabled=true;
-button.textContent="Sending...";
-try{
-const verifier=await createRecaptcha();
-confirmationResult=await signInWithPhoneNumber(auth,phone,verifier);
-document.getElementById("codeArea").classList.remove("hidden");
-showStatus("phoneStatus","Verification code sent. Check your SMS and enter the code below.","success");
-}catch(error){
-showStatus("phoneStatus",friendlyError(error),"error");
-if(recaptchaVerifier){
-try{recaptchaVerifier.clear();}catch(clearError){}
-recaptchaVerifier=null;
-}
-}finally{
-button.disabled=false;
-button.textContent="Send verification code";
-}
-});
-
-document.getElementById("verifyCodeBtn").addEventListener("click",async()=>{
-const code=document.getElementById("smsCode").value.trim();
-const name=document.getElementById("phoneName").value.trim();
-if(!confirmationResult)return showStatus("phoneStatus","Request a verification code first.","error");
-if(!code)return showStatus("phoneStatus","Enter the verification code sent to your phone.","error");
-try{
-const credential=await confirmationResult.confirm(code);
-if(name&&!credential.user.displayName)await updateProfile(credential.user,{displayName:name});
-try{
-await saveUserProfile(credential.user,name);
-showStatus("phoneStatus","Your phone number has been verified and your account is ready.","success");
-}catch(profileError){
-console.error(profileError);
-showStatus("phoneStatus","Your phone number is verified and you are signed in, but your Firestore profile could not be saved. Check your database rules.","error");
-}
-document.getElementById("codeArea").classList.add("hidden");
-}catch(error){
-showStatus("phoneStatus",friendlyError(error),"error");
-}
-});
-
-document.getElementById("signOutBtn").addEventListener("click",async()=>{
-try{
-await signOut(auth);
-showPage("home");
-}catch(error){
-showStatus("accountStatus",friendlyError(error),"error");
-}
-});
-
-async function startAuthentication(){
+import{initializeApp}from"https://www.gstatic.com/firebasejs/13.3.0/firebase-app.js";
+import{getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut,onAuthStateChanged,sendPasswordResetEmail,updateProfile,RecaptchaVerifier,signInWithPhoneNumber,setPersistence,browserLocalPersistence}from"https://www.gstatic.com/firebasejs/13.3.0/firebase-auth.js";
+import{getFirestore,doc,setDoc,getDoc,serverTimestamp}from"https://www.gstatic.com/firebasejs/13.3.0/firebase-firestore.js";
+const firebaseConfig={apiKey:"AIzaSyBPnr2WGGyNLVnUHB9zTH-IAzeLTC8jJGg",authDomain:"hustle-ndogo-ke.firebaseapp.com",projectId:"hustle-ndogo-ke",storageBucket:"hustle-ndogo-ke.firebasestorage.app",messagingSenderId:"232063329171",appId:"1:232063329171:web:97b35d6820f505d0d5be66",measurementId:"G-SCVT4S5BCV"};
+const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app);
 await setPersistence(auth,browserLocalPersistence);
-onAuthStateChanged(auth,async user=>{
-const signedOutArea=document.getElementById("signedOutArea");
-const signedInArea=document.getElementById("signedInArea");
-const joinButton=document.getElementById("joinButton");
-if(user){
-signedOutArea.classList.add("hidden");
-signedInArea.classList.remove("hidden");
-document.getElementById("profileName").textContent=user.displayName||"Welcome to Hustle Ndogo";
-document.getElementById("profileContact").textContent=user.email||user.phoneNumber||"Signed-in account";
-joinButton.textContent="My Account";
-try{
-const ref=doc(db,"users",user.uid);
-const existing=await getDoc(ref);
-const previous=existing.exists()?existing.data():{};
-if(!existing.exists()||!previous.displayName){
-await saveUserProfile(user);
-}
-}catch(error){
-console.error("Firestore profile sync error:",error);
-showStatus("accountStatus","You are signed in, but your profile could not be synced to Firestore. Check your Firestore database and security rules.","error");
-}
-}else{
-signedInArea.classList.add("hidden");
-signedOutArea.classList.remove("hidden");
-joinButton.textContent="Join Us";
-}
-});
-}
-
-startAuthentication().catch(error=>{
-console.error("Firebase startup error:",error);
-showStatus("emailStatus","Firebase could not start: "+friendlyError(error),"error");
-});
+const $=id=>document.getElementById(id);
+function status(id,msg,type='info'){let e=$(id);e.textContent=msg;e.className='status show '+type}
+function friendly(e){const m={'auth/email-already-in-use':'That email already has an account. Please sign in.','auth/invalid-email':'Enter a valid email address.','auth/weak-password':'Use a password with at least 6 characters.','auth/user-not-found':'No account was found.','auth/wrong-password':'The password is incorrect.','auth/invalid-credential':'The login details are incorrect.','auth/too-many-requests':'Too many attempts. Wait a while and try again.','auth/operation-not-allowed':'Firebase is not allowing this sign-in method. Check that the provider is enabled in the same Firebase project used by this website.','auth/invalid-phone-number':'Enter your phone number in international format, e.g. +2547XXXXXXXX.','auth/quota-exceeded':'Firebase SMS quota has been reached. Try later or use email login.','auth/captcha-check-failed':'Google reCAPTCHA verification failed. Refresh and try again.','auth/unauthorized-domain':'Add this website domain under Firebase Authentication → Settings → Authorized domains.','auth/network-request-failed':'Network error. Check your connection.'};return m[e.code]||((e.message||'Something went wrong.')+' ('+(e.code||'unknown error')+')')}
+async function saveProfile(user,name){let ref=doc(db,'users',user.uid),old={};try{let snap=await getDoc(ref);if(snap.exists())old=snap.data()}catch(e){}let displayName=name||user.displayName||old.displayName||'Hustle Ndogo Member';await setDoc(ref,{uid:user.uid,displayName,email:user.email||null,phoneNumber:user.phoneNumber||null,createdAt:old.createdAt||serverTimestamp(),updatedAt:serverTimestamp()},{merge:true});return displayName}
+$('registerEmailBtn').addEventListener('click',async()=>{let name=$('fullName').value.trim(),email=$('email').value.trim(),password=$('password').value;if(!name)return status('emailStatus','Please enter your name.','error');if(!email||!password)return status('emailStatus','Enter your email and password.','error');if(password.length<6)return status('emailStatus','Password must be at least 6 characters.','error');try{let c=await createUserWithEmailAndPassword(auth,email,password);await updateProfile(c.user,{displayName:name});await saveProfile(c.user,name);status('emailStatus','Account created successfully. Welcome, '+name+'!','success')}catch(e){status('emailStatus',friendly(e),'error')}});
+$('loginEmailBtn').addEventListener('click',async()=>{let email=$('email').value.trim(),password=$('password').value;if(!email||!password)return status('emailStatus','Enter your email and password.','error');try{await signInWithEmailAndPassword(auth,email,password);status('emailStatus','You are signed in.','success')}catch(e){status('emailStatus',friendly(e),'error')}});
+$('resetPasswordBtn').addEventListener('click',async()=>{let email=$('email').value.trim();if(!email)return status('emailStatus','Enter your email address first.','error');try{await sendPasswordResetEmail(auth,email);status('emailStatus','Password reset instructions have been sent if the account exists. Check your inbox and spam folder.','success')}catch(e){status('emailStatus',friendly(e),'error')}});
+let verifier=null,confirmation=null;
+async function createVerifier(){if(verifier){try{verifier.clear()}catch(e){}verifier=null}verifier=new RecaptchaVerifier(auth,'recaptcha-container',{size:'normal'});await verifier.render();return verifier}
+$('sendCodeBtn').addEventListener('click',async()=>{let phone=$('phoneNumber').value.trim();if(!/^\+[1-9]\d{7,14}$/.test(phone))return status('phoneStatus','Use international format, for example +2547XXXXXXXX.','error');let b=$('sendCodeBtn');b.disabled=true;b.textContent='Sending…';try{let v=await createVerifier();confirmation=await signInWithPhoneNumber(auth,phone,v);$('codeArea').classList.remove('hidden');status('phoneStatus','Verification code sent. Check your SMS messages.','success')}catch(e){status('phoneStatus',friendly(e),'error');if(verifier){try{verifier.clear()}catch(x){}verifier=null}}finally{b.disabled=false;b.textContent='Send verification code'}});
+$('verifyCodeBtn').addEventListener('click',async()=>{let code=$('smsCode').value.trim(),name=$('phoneName').value.trim();if(!confirmation)return status('phoneStatus','Request a verification code first.','error');if(!code)return status('phoneStatus','Enter the SMS verification code.','error');try{let c=await confirmation.confirm(code);if(name&&!c.user.displayName)await updateProfile(c.user,{displayName:name});await saveProfile(c.user,name);$('codeArea').classList.add('hidden');status('phoneStatus','Phone verified. Welcome to Hustle Ndogo!','success')}catch(e){status('phoneStatus',friendly(e),'error')}});
+$('signOutBtn').addEventListener('click',async()=>{try{await signOut(auth);showPage('home')}catch(e){status('accountStatus',friendly(e),'error')}});
+onAuthStateChanged(auth,async user=>{if(user){$('signedOutArea').classList.add('hidden');$('signedInArea').classList.remove('hidden');$('joinButton').textContent='My Account';let name=user.displayName||'Hustle Ndogo Member';try{name=await saveProfile(user)}catch(e){console.warn('Profile sync:',e)}$('profileName').textContent='Welcome, '+name+'!';$('welcomeMessage').textContent='Welcome back, '+name+'. Your Hustle Ndogo journey continues here.';$('profileContact').textContent=user.email||user.phoneNumber||'Your account';$('heroGreeting').innerHTML='Welcome, '+name+'!<br>Connect. Play. Create. Earn.'}else{$('signedOutArea').classList.remove('hidden');$('signedInArea').classList.add('hidden');$('joinButton').textContent='Join Us';$('heroGreeting').innerHTML='Connect. Play.<br>Create. Earn.'}});
 </script>
 </body>
 </html>
