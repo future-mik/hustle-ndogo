@@ -1,13 +1,16 @@
 {
+  "id": "./",
   "name": "Hustle Ndogo KE",
   "short_name": "Hustle Ndogo",
   "description": "Connect. Play. Create. Earn.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "orientation": "portrait",
-  "background_color": "#120b20",
-  "theme_color": "#160d29",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#100b20",
+  "theme_color": "#100b20",
+  "categories": ["social", "entertainment", "games"],
   "icons": [
     {
       "src": "./hustle-logo.jpg",
