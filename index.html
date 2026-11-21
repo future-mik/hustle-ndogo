@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a7a4c">
+  <link rel="manifest" href="manifest.json">
+  <title>Hustle Ndogo — Pesa Kidogo, Maisha Bora</title>
+  <style>
+    /* ===== Basic Styles (preserving original visual style) ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: #f5f7fa;
+      color: #1a1a2e;
+      line-height: 1.6;
+    }
+    header {
+      background: #1a7a4c;
+      color: white;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.6rem; }
+    .logo-area img {
+      height: 40px; width: 40px; border-radius: 50%;
+      object-fit: cover; background: #fff;
+    }
+    .logo-area span { font-weight: 700; font-size: 1.2rem; }
+    nav { display: flex; gap: 1rem; flex-wrap: wrap; }
+    nav a {
+      color: white; text-decoration: none; font-size: 0.9rem;
+      opacity: 0.9; transition: opacity 0.2s;
+    }
+    nav a:hover { opacity: 1; text-decoration: underline; }
+
+    /* ===== Auth Section (minimalist, non-intrusive) ===== */
+    .auth-bar {
+      background: #fff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 0.6rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+    }
+    .auth-bar button {
+      cursor: pointer; border: none; border-radius: 6px;
+      padding: 0.45rem 1rem; font-size: 0.85rem;
+      font-weight: 500; transition: background 0.2s;
+    }
+    .btn-google { background: #db4437; color: #fff; }
+    .btn-google:hover { background: #c23321; }
+    .btn-email { background: #e2e8f0; color: #1a1a2e; }
+    .btn-email:hover { background: #cbd5e1; }
+    .btn-logout { background: #ef4444; color: #fff; }
+    .btn-logout:hover { background: #dc2626; }
+    #user-info { font-weight: 500; color: #1a7a4c; }
+
+    /* Email login modal (simple overlay) */
+    .auth-modal {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.4); z-index: 200;
+      align-items: center; justify-content: center;
+    }
+    .auth-modal.active { display: flex; }
+    .auth-modal-content {
+      background: #fff; padding: 1.5rem; border-radius: 12px;
+      width: 90%; max-width: 360px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+    .auth-modal-content h3 { margin-bottom: 1rem; color: #1a7a4c; }
+    .auth-modal-content input {
+      width: 100%; padding: 0.6rem; margin-bottom: 0.75rem;
+      border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.9rem;
+    }
+    .auth-modal-content button {
+      width: 100%; padding: 0.6rem; margin-bottom: 0.5rem;
+      border: none; border-radius: 6px; font-weight: 500;
+      cursor: pointer; font-size: 0.9rem;
+    }
+    .auth-modal-content .btn-close {
+      background: #e2e8f0; color: #1a1a2e; margin-top: 0.25rem;
+    }
+    .auth-error { color: #dc2626; font-size: 0.8rem; margin-bottom: 0.5rem; }
+
+    /* ===== Original Page Content Styles ===== */
+    main { max-width: 1100px; margin: 0 auto; padding: 1.5rem; }
+    .hero {
+      background: linear-gradient(135deg, #1a7a4c 0%, #2d9e6a 100%);
+      color: white; border-radius: 16px; padding: 2rem;
+      margin-bottom: 2rem; display: flex; align-items: center;
+      gap: 1.5rem; flex-wrap: wrap;
+    }
+    .hero-text { flex: 1; min-width: 240px; }
+    .hero-text h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .hero-text p { opacity: 0.95; font-size: 1rem; }
+    .hero-img {
+      flex: 0 0 200px; height: 140px; border-radius: 12px;
+      overflow: hidden; background: #ccc;
+    }
+    .hero-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .section-title {
+      font-size: 1.3rem; margin-bottom: 1rem;
+      color: #1a7a4c; display: flex; align-items: center; gap: 0.5rem;
+    }
+    .grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem; margin-bottom: 2rem;
+    }
+    .card {
+      background: #fff; border-radius: 12px; padding: 1.2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      display: flex; flex-direction: column; gap: 0.5rem;
+      transition: transform 0.15s;
+    }
+    .card:hover { transform: translateY(-2px); }
+    .card .icon { font-size: 1.8rem; }
+    .card h3 { font-size: 1rem; }
+    .card p { font-size: 0.85rem; color: #475569; flex: 1; }
+    .card .pay { font-weight: 700; color: #1a7a4c; font-size: 0.9rem; }
+    .card button {
+      background: #1a7a4c; color: #fff; border: none;
+      border-radius: 6px; padding: 0.4rem 0.8rem;
+      font-size: 0.8rem; cursor: pointer; align-self: flex-start;
+    }
+
+    .community-banner {
+      background: #fff; border-radius: 16px; padding: 1.5rem;
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+      margin-bottom: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .community-banner .imgs { display: flex; gap: 0.5rem; }
+    .community-banner .imgs img {
+      width: 70px; height: 70px; border-radius: 50%;
+      object-fit: cover; border: 2px solid #1a7a4c;
+    }
+    .community-banner p { flex: 1; font-size: 0.95rem; }
+
+    .wa-btn {
+      display: inline-block; background: #25D366; color: #fff;
+      padding: 0.6rem 1.2rem; border-radius: 30px;
+      text-decoration: none; font-weight: 600; font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    footer {
+      text-align: center; padding: 1.5rem;
+      color: #94a3b8; font-size: 0.8rem;
+    }
+
+    @media (max-width: 500px) {
+      header { flex-direction: column; align-items: flex-start; }
+      .hero { flex-direction: column; text-align: center; }
+      .hero-img { flex: auto; width: 100%; height: 160px; }
+    }
+  </style>
+  <!-- Supabase JS SDK (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <!-- ===== Original Header ===== -->
+  <header>
+    <div class="logo-area">
+      <img src="hustle-logo.jpg" alt="Hustle Ndogo">
+      <span>Hustle Ndogo</span>
+    </div>
+    <nav>
+      <a href="#opportunities">Opportunities</a>
+      <a href="#ideas">Income Ideas</a>
+      <a href="#digital">Digital</a>
+      <a href="#community">Community</a>
+    </nav>
+  </header>
+
+  <!-- ===== Auth Bar (newly added, does not affect original content) ===== -->
+  <div class="auth-bar" id="auth-bar">
+    <span id="user-info"></span>
+    <button class="btn-google" id="google-login-btn" onclick="signInWithGoogle()">Sign in with Google</button>
+    <button class="btn-email" id="email-login-btn" onclick="openEmailModal()">Email Sign in</button>
+    <button class="btn-logout" id="logout-btn" onclick="signOut()" style="display:none;">Sign Out</button>
+  </div>
+
+  <!-- Email login modal -->
+  <div class="auth-modal" id="email-modal">
+    <div class="auth-modal-content">
+      <h3>Email Sign in / Sign up</h3>
+      <div class="auth-error" id="email-error"></div>
+      <input type="email" id="email-input" placeholder="Email address" autocomplete="email">
+      <input type="password" id="password-input" placeholder="Password (min 6 characters)" autocomplete="current-password">
+      <button class="btn-google" onclick="signInWithEmail()">Sign In</button>
+      <button class="btn-email" onclick="signUpWithEmail()">Sign Up (new account)</button>
+      <button class="btn-close" onclick="closeEmailModal()">Cancel</button>
+    </div>
+  </div>
+
+  <!-- ===== Original Page Content ===== -->
+  <main>
+    <!-- Hero section (using existing mzinga-people1.jpg) -->
+    <section class="hero" id="hero">
+      <div class="hero-text">
+        <h1>Pata Hustle, Pata Pesa</h1>
+        <p>Connecting Kenyans to small opportunities, practical income ideas, and a community built around financial independence.</p>
+      </div>
+      <div class="hero-img">
+        <img src="mzinga-people1.jpg" alt="Hustle community">
+      </div>
+    </section>
+
+    <!-- Opportunities (dynamically rendered using original logic) -->
+    <h2 class="section-title" id="opportunities">🔥 Available Hustles</h2>
+    <div class="grid" id="hustle-grid"></div>
+
+    <!-- Community section (preserving original usage of mzinga-people2/3/4) -->
+    <section id="community">
+      <h2 class="section-title">🤝 Join the Community</h2>
+      <div class="community-banner">
+        <div class="imgs">
+          <img src="mzinga-people2.jpg" alt="Member">
+          <img src="mzinga-people3.jpg" alt="Member">
+          <img src="mzinga-people4.jpg" alt="Member">
+        </div>
+        <p>Connect with fellow hustlers, share tips, and grow together. Get daily opportunities on WhatsApp.</p>
+        <a href="https://wa.me/254700000000" class="wa-btn" target="_blank" rel="noopener">Join WhatsApp Group</a>
+      </div>
+    </section>
+
+    <p style="text-align:center; color:#64748b; font-size:0.9rem; margin-top:1rem;">
+      More sections (Income Ideas, Digital Opportunities) coming soon — your layout stays intact.
+    </p>
+  </main>
+
+  <footer>
+    &copy; 2026 Hustle Ndogo. Built for the hustle.
+  </footer>
+
+  <script>
+    // ============================================================
+    // 1. Supabase Initialization (replace with your own credentials)
+    // ============================================================
+    const SUPABASE_URL = 'YOUR_SUPABASE_URL';          // e.g. https://xxxxx.supabase.co
+    const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY'; // starts with eyJ...
+
+    const { createClient } = supabase;
+    const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // ============================================================
+    // 2. Auth State UI Control
+    // ============================================================
+    function updateAuthUI(session) {
+      const userInfo = document.getElementById('user-info');
+      const googleBtn = document.getElementById('google-login-btn');
+      const emailBtn = document.getElementById('email-login-btn');
+      const logoutBtn = document.getElementById('logout-btn');
+
+      if (session && session.user) {
+        const email = session.user.email || 'User';
+        userInfo.textContent = `👋 ${email}`;
+        googleBtn.style.display = 'none';
+        emailBtn.style.display = 'none';
+        logoutBtn.style.display = 'inline-block';
+      } else {
+        userInfo.textContent = '';
+        googleBtn.style.display = 'inline-block';
+        emailBtn.style.display = 'inline-block';
+        logoutBtn.style.display = 'none';
+      }
+    }
+
+    // Listen for auth state changes
+    supabaseClient.auth.onAuthStateChange((_event, session) => {
+      updateAuthUI(session);
+    });
+
+    // Check existing session on page load
+    supabaseClient.auth.getSession().then(({ data: { session } }) => {
+      updateAuthUI(session);
+    });
+
+    // ============================================================
+    // 3. Google Login (OAuth via Supabase)
+    // ============================================================
+    async function signInWithGoogle() {
+      const { error } = await supabaseClient.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: window.location.origin + window.location.pathname,
+        },
+      });
+      if (error) {
+        alert('Google login failed: ' + error.message);
+      }
+      // On success, the page redirects to Google and returns; onAuthStateChange will handle the UI.
+    }
+
+    // ============================================================
+    // 4. Email / Password Login
+    // ============================================================
+    function openEmailModal() {
+      document.getElementById('email-modal').classList.add('active');
+      document.getElementById('email-error').textContent = '';
+    }
+
+    function closeEmailModal() {
+      document.getElementById('email-modal').classList.remove('active');
+    }
+
+    async function signInWithEmail() {
+      const email = document.getElementById('email-input').value.trim();
+      const password = document.getElementById('password-input').value;
+      const errorEl = document.getElementById('email-error');
+
+      if (!email || !password) {
+        errorEl.textContent = 'Please enter both email and password.';
+        return;
+      }
+
+      const { error } = await supabaseClient.auth.signInWithPassword({
+        email: email,
+        password: password,
+      });
+
+      if (error) {
+        errorEl.textContent = error.message;
+      } else {
+        closeEmailModal();
+      }
+    }
+
+    async function signUpWithEmail() {
+      const email = document.getElementById('email-input').value.trim();
+      const password = document.getElementById('password-input').value;
+      const errorEl = document.getElementById('email-error');
+
+      if (!email || !password) {
+        errorEl.textContent = 'Please enter both email and password.';
+        return;
+      }
+      if (password.length < 6) {
+        errorEl.textContent = 'Password must be at least 6 characters.';
+        return;
+      }
+
+      const { error } = await supabaseClient.auth.signUp({
+        email: email,
+        password: password,
+      });
+
+      if (error) {
+        errorEl.textContent = error.message;
+      } else {
+        errorEl.textContent = 'Sign-up successful! Check your email to confirm, or try signing in.';
+        // Optionally close the modal after a delay; here we leave it for user to see the message.
+      }
+    }
+
+    // ============================================================
+    // 5. Logout
+    // ============================================================
+    async function signOut() {
+      await supabaseClient.auth.signOut();
+    }
+
+    // ============================================================
+    // 6. Original Hustle Card Data and Rendering (unchanged logic)
+    // ============================================================
+    const hustles = [
+      { id: 1, title: "Boda Boda Delivery", category: "transport", pay: "KSh 800/day", desc: "Deliver parcels around town.", icon: "🛵" },
+      { id: 2, title: "M-Pesa Agent", category: "finance", pay: "KSh 1,200/day", desc: "Run a mobile money kiosk.", icon: "📱" },
+      { id: 3, title: "Online Tutor", category: "digital", pay: "KSh 1,000/hr", desc: "Teach students via Zoom or WhatsApp.", icon: "💻" },
+      { id: 4, title: "Food Vendor", category: "food", pay: "KSh 2,000/day", desc: "Sell snacks at busy junctions.", icon: "🍲" },
+    ];
+
+    const grid = document.getElementById('hustle-grid');
+
+    function renderHustles(list) {
+      grid.innerHTML = list.map(h => `
+        <article class="card" data-id="${h.id}">
+          <span class="icon">${h.icon}</span>
+          <h3>${h.title}</h3>
+          <p>${h.desc}</p>
+          <span class="pay">${h.pay}</span>
+          <button onclick="saveHustle(${h.id})">Save</button>
+        </article>
+      `).join('');
+    }
+
+    function saveHustle(id) {
+      // Simple local save (works even without login; you can later tie to Supabase if needed)
+      const saved = JSON.parse(localStorage.getItem('savedHustles') || '[]');
+      if (!saved.includes(id)) {
+        saved.push(id);
+        localStorage.setItem('savedHustles', JSON.stringify(saved));
+        alert('Saved for later!');
+      } else {
+        alert('Already saved.');
+      }
+    }
+
+    // Initial render
+    renderHustles(hustles);
+  </script>
+</body>
+</html>
